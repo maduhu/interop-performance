@@ -41,7 +41,7 @@ In this section you should configure the following attributes:
 
 This test loads test cases from a csv file.  You will need to either copy the sample file located here into your `jmeter bin` directory or edit this element and include the path to the file.  The file contains the following data.
 
-![CSV Config](./media/test_data_config.jpg "CSV Config")
+![CSV Config](./previous/media/test_data_config.jpg "CSV Config")
 
 fromAccountName, toAccountName, transferAmount
 
