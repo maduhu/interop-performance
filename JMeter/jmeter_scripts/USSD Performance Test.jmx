@@ -110,6 +110,41 @@
         </collectionProp>
       </HeaderManager>
       <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="DFSP2_U1_Balance_1" elementType="Argument">
+            <stringProp name="Argument.name">DFSP2_U1_Balance_1</stringProp>
+            <stringProp name="Argument.value">0</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DFSP2_U1_Balance_2" elementType="Argument">
+            <stringProp name="Argument.name">DFSP2_U1_Balance_2</stringProp>
+            <stringProp name="Argument.value">0</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DFSP2_U2_Balance_1" elementType="Argument">
+            <stringProp name="Argument.name">DFSP2_U2_Balance_1</stringProp>
+            <stringProp name="Argument.value">0</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DFSP2_U2_Balance_2" elementType="Argument">
+            <stringProp name="Argument.name">DFSP2_U2_Balance_2</stringProp>
+            <stringProp name="Argument.value">0</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="dfsp_host_var" elementType="Argument">
+            <stringProp name="Argument.name">dfsp_host_var</stringProp>
+            <stringProp name="Argument.value">${dfsp1}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="approving_dfsp_host_var" elementType="Argument">
+            <stringProp name="Argument.name">approving_dfsp_host_var</stringProp>
+            <stringProp name="Argument.value">${dfsp2}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Send Money - CSV based - Thread Group" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">startnextloop</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -136,36 +171,6 @@
           <stringProp name="shareMode">shareMode.all</stringProp>
           <boolProp name="ignoreFirstLine">false</boolProp>
         </CSVDataSet>
-        <hashTree/>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="DFSP2_U1_Balance_1" elementType="Argument">
-              <stringProp name="Argument.name">DFSP2_U1_Balance_1</stringProp>
-              <stringProp name="Argument.value">0</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="DFSP2_U1_Balance_2" elementType="Argument">
-              <stringProp name="Argument.name">DFSP2_U1_Balance_2</stringProp>
-              <stringProp name="Argument.value">0</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="DFSP2_U2_Balance_1" elementType="Argument">
-              <stringProp name="Argument.name">DFSP2_U2_Balance_1</stringProp>
-              <stringProp name="Argument.value">0</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="DFSP2_U2_Balance_2" elementType="Argument">
-              <stringProp name="Argument.name">DFSP2_U2_Balance_2</stringProp>
-              <stringProp name="Argument.value">0</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="dfsp_host_var" elementType="Argument">
-              <stringProp name="Argument.name">dfsp_host_var</stringProp>
-              <stringProp name="Argument.value">${dfsp1_test}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-        </Arguments>
         <hashTree/>
         <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="initial dfsp_host_var to set the correct dfsp endpoint" enabled="true">
           <stringProp name="filename"></stringProp>
@@ -1363,7 +1368,7 @@ if (Failure) {
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">2</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <longProp name="ThreadGroup.start_time">1486058892000</longProp>
         <longProp name="ThreadGroup.end_time">1486058892000</longProp>
@@ -1388,6 +1393,23 @@ if (Failure) {
           <stringProp name="filename"></stringProp>
           <stringProp name="parameters"></stringProp>
           <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="script">print(&quot;=========================================&quot;);
+
+if ( vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;) ) {
+	print(&quot;just set the host to dfsp1 and approving dfsp to dfsp2&quot;);
+	vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp1}&quot;);
+	vars.put(&quot;approving_dfsp_host_var&quot;, &quot;${dfsp2}&quot;);
+} else {
+	print(&quot;just set the host to dfsp2 and approving dfsp to dfsp1&quot;);
+	vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp2}&quot;);
+	vars.put(&quot;approving_dfsp_host_var&quot;, &quot;${dfsp1}&quot;);
+}</stringProp>
+        </BeanShellPreProcessor>
+        <hashTree/>
+        <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="initial dfsp_host_var to set the correct dfsp endpoint." enabled="false">
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
           <stringProp name="script">//print(&quot;=========================================&quot;);
 //print(&quot;senderDFSP = &quot; + vars.get(&quot;senderDFSP&quot;));
 //dfsp=vars.get(&quot;senderDFSP&quot;);
@@ -1401,28 +1423,9 @@ if (Failure) {
 //	vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp2}&quot;);
 //}
 </stringProp>
-        </BeanShellPreProcessor>
-        <hashTree/>
-        <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="initial dfsp_host_var to set the correct dfsp endpoint." enabled="true">
-          <boolProp name="resetInterpreter">false</boolProp>
-          <stringProp name="parameters"></stringProp>
-          <stringProp name="filename"></stringProp>
-          <stringProp name="script">print(&quot;=========================================&quot;);
-print(&quot;senderDFSP = &quot; + vars.get(&quot;senderDFSP&quot;));
-dfsp=vars.get(&quot;senderDFSP&quot;);
-
-
-if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
-	print(&quot;just set the host to dfsp1&quot;);
-	vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp1}&quot;);
-} else {
-	print(&quot;just set the host to dfsp2&quot;);
-	vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp2}&quot;);
-}
-</stringProp>
         </BeanShellPostProcessor>
         <hashTree/>
-        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="Configure for DFSP1" enabled="true">
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="Configure for DFSP1" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -1988,50 +1991,6 @@ JMeterUtils.setProperty(&quot;Balance_2&quot;, Balance_2);</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Change dfsp_host_var to receiver DFSP endpoint" enabled="true">
-          <boolProp name="resetInterpreter">false</boolProp>
-          <stringProp name="parameters"></stringProp>
-          <stringProp name="filename"></stringProp>
-          <stringProp name="script">print(&quot;////////////////////////////////////////////////&quot;);
-print(&quot;** swap dfsps from the sender to the receiver **&quot;);
-
-print(&quot;receiverDFSP = &quot; + vars.get(&quot;receiverDFSP&quot;));
-dfsp=vars.get(&quot;receiverDFSP&quot;);
-
-
-if (vars.get(&quot;receiverDFSP&quot;).equals(&quot;dfsp1&quot;)) {
-	print(&quot;just set the host to dfsp1&quot;);
-	vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp1}&quot;);
-} else {
-	print(&quot;just set the host to dfsp2&quot;);
-	vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp2}&quot;);
-}
-
-print(&quot;** End of swap dfsps from the sender to the receiver **&quot;);</stringProp>
-        </BeanShellPostProcessor>
-        <hashTree/>
-        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="Change dfsp_host_var to receiver DFSP endpoint" enabled="true">
-          <stringProp name="filename"></stringProp>
-          <stringProp name="parameters"></stringProp>
-          <boolProp name="resetInterpreter">true</boolProp>
-          <stringProp name="script">//print(&quot;////////////////////////////////////////////////&quot;);
-//print(&quot;** swap dfsps from the sender to the receiver **&quot;);
-//
-//print(&quot;receiverDFSP = &quot; + vars.get(&quot;receiverDFSP&quot;));
-//dfsp=vars.get(&quot;receiverDFSP&quot;);
-//
-//
-//if (vars.get(&quot;receiverDFSP&quot;).equals(&quot;dfsp1&quot;)) {
-//	print(&quot;just set the host to dfsp1&quot;);
-//	vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp1}&quot;);
-//} else {
-//	print(&quot;just set the host to dfsp2&quot;);
-//	vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp2}&quot;);
-//}
-//
-//print(&quot;** End of swap dfsps from the sender to the receiver **&quot;);</stringProp>
-        </BeanShellPreProcessor>
-        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Connect to existing acount - Receiver - Step 14" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -2047,7 +2006,7 @@ print(&quot;** End of swap dfsps from the sender to the receiver **&quot;);</str
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.domain">${approving_dfsp_host_var}</stringProp>
           <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -2086,7 +2045,7 @@ print(&quot;** End of swap dfsps from the sender to the receiver **&quot;);</str
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.domain">${approving_dfsp_host_var}</stringProp>
           <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -2125,7 +2084,7 @@ print(&quot;** End of swap dfsps from the sender to the receiver **&quot;);</str
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.domain">${approving_dfsp_host_var}</stringProp>
           <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -2164,7 +2123,7 @@ print(&quot;** End of swap dfsps from the sender to the receiver **&quot;);</str
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.domain">${approving_dfsp_host_var}</stringProp>
           <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -2238,7 +2197,7 @@ else {
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.domain">${approving_dfsp_host_var}</stringProp>
           <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -2296,7 +2255,7 @@ JMeterUtils.setProperty(&quot;Balance2&quot;, newSource.toString());</stringProp
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.domain">${approving_dfsp_host_var}</stringProp>
           <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -2801,13 +2760,6 @@ if (Failure) {
           </objProp>
           <stringProp name="filename"></stringProp>
         </ResultCollector>
-        <hashTree/>
-        <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Sampler" enabled="true">
-          <stringProp name="BeanShellSampler.query">print(&quot;in beanshell samples&quot;);</stringProp>
-          <stringProp name="BeanShellSampler.filename"></stringProp>
-          <stringProp name="BeanShellSampler.parameters"></stringProp>
-          <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
-        </BeanShellSampler>
         <hashTree/>
       </hashTree>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
