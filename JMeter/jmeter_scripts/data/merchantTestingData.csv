@@ -1,0 +1,3 @@
+"senderDFSP","senderName","senderUserNumber","senderAccountId","senderRoleType","receiverDFSP","receiverName","receiverUserNumber","receiverAccountId","receiverRoleType"
+"dfsp1","cust170519-7-01","PT170519-7-01","07201371","merchant","dfsp2","cust170519-7-02","PT170519-7-02","63404793","merchant"
+"dfsp2","cust170519-7-02","PT170519-7-02","63404793","merchant","dfsp1","cust170519-7-01","PT170519-7-01","07201371","merchant"

@@ -1,5 +1,0 @@
-senderDFSP,senderName,senderUserNumber,senderAccountId,senderRoleType,receiverDFSP,receiverName,receiverUserNumber,receiverAccountId,receiverRoleType
-dfsp1,merch170518-1-01,perftest-a-1-01,91204866,merchant,dfsp2,merch170518-1-02,perftest-a-1-02,23511435,merchant
-dfsp2,merch170518-1-02,perftest-a-1-02,23511435,merchant,dfsp1,merch170518-1-01,perftest-a-1-01,91204866,merchant
-dfsp1,merch170518-1-11,perftest-a-1-11,08329931,merchant,dfsp2,merch170518-1-12,perftest-a-1-12,97328380,merchant
-dfsp2,merch170518-1-12,perftest-a-1-12,97328380,merchant,dfsp1,merch170518-1-11,perftest-a-1-11,08329931,merchant
