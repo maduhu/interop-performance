@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+ 
+	<sub-flow name="call-ussd-post-Sub_Flow">
+        <set-property propertyName="Content-Type" value="application/json" doc:name="Property - content-type"/>
+        <logger message="payload before call to USSD: #[payload]" level="INFO" doc:name="Logger"/>
+<!--         <logger message="about to call ussd endpoint or mock:  ussd path = ${ussd_path}, ussd host = #[sessionVars.dfsp_host], port = ${ussd.port}" level="INFO" doc:name="Logger"/> -->
+<!--         <logger message="body of message we are sending to the USSD POST :: #[payload]" level="INFO" doc:name="Logger"/> -->
+        <http:request config-ref="HTTP_Request_Configuration_USSD" path="${ussd_path}" method="POST" doc:name="HTTP - post USSD"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+    </sub-flow>
+    
+</mule>

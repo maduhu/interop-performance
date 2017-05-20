@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+
+
+	<http:request-config name="HTTP_Request_Configuration_USSD" host="#[sessionVars.dfsp_host]" port="${ussd.port}" doc:name="HTTP Request Configuration" usePersistentConnections="false"/>
+    <context:property-placeholder location="mule-${MULE_ENV}.properties"/>
+    <http:listener-config name="HTTP_Listener_Configuration-test" host="0.0.0.0" port="8082" doc:name="HTTP Listener Configuration"/>
+    
+    <flow name="main-logic-Flow">
+        <logger message="starting main logic flow" level="INFO" doc:name="Logger"/>
+        <logger message="Running in environment = ${MULE_ENV}" level="INFO" doc:name="Logger"/>
+        <set-variable variableName="numAccountsCreated" value="#[0]" doc:name="Variable - numAccountsCreated - initialized to 0"/>
+        <flow-ref name="extract-payload-variables-Sub_Flow" doc:name="extract-payload-variables-Sub_Flow"/>
+        <flow-ref name="create-user-data-Sub_Flow" doc:name="create-user-data-Sub_Flow"/>
+        <flow-ref name="create-users-accounts-in-dfsp-Sub_Flow" doc:name="create-users-accounts-in-dfsp-Sub_Flow"/>
+        <flow-ref name="write-data-to-file-Sub_Flow" doc:name="write-data-to-file-Sub_Flow"/>
+        <logger message="end of create data main logic flow" level="INFO" doc:name="Logger"/>
+    </flow>
+    
+    <sub-flow name="extract-payload-variables-Sub_Flow">
+        <logger message="extract payload data" level="INFO" doc:name="Logger"/>
+        <set-session-variable variableName="numberOfUsersToCreate" value="#[json:numberOfUsersToCreate]" doc:name="Session Variable - numberOfUsersToCreate"/>
+        <set-session-variable variableName="phoneNameRoot" value="#[json:phoneNameRoot]" doc:name="Session Variable - phoneNameRoot"/>
+        <set-session-variable variableName="accountNameRoot" value="#[json:accountNameRoot]" doc:name="Session Variable - accountNameRoot"/>
+        <set-session-variable variableName="testRunSequence" value="#[json:testRunSequence]" doc:name="Session Variable - testRunSequence"/>
+        <set-session-variable variableName="userRoleType" value="#[json:userRoleType]" doc:name="Session Variable - userRoleType"/>
+        <logger message="num users :: #[json:numberOfUsersToCreate]" level="INFO" doc:name="Logger"/>
+    </sub-flow>
+    
+    <sub-flow name="create-user-data-Sub_Flow">
+        <logger message="create raw data to be created in java " level="INFO" doc:name="Logger"/>
+        <component class="com.modusbox.component.CreateTestData" doc:name="Java - create user data"/>
+    </sub-flow>
+    
+    <sub-flow name="create-users-accounts-in-dfsp-Sub_Flow">
+        <logger message="call dfsp to create actual users" level="INFO" doc:name="Logger"/>
+        <set-payload value="#[sessionVars.dfsp1_users]" doc:name="Set Payload - dfsp1 users"/>
+        <set-session-variable variableName="dfsp_host" value="${ussd.dfsp1.host}" doc:name="Session Variable - set http host to dfsp1"/>
+        <flow-ref name="process-users-Sub_Flow" doc:name="process-users-Sub_Flow"/>
+        <set-payload value="#[sessionVars.dfsp2_users]" doc:name="Set Payload - dfsp2 users"/>
+        <set-session-variable variableName="dfsp_host" value="${ussd.dfsp2.host}" doc:name="Session Variable - set http host to dfsp2"/>
+        <flow-ref name="process-users-Sub_Flow" doc:name="process-users-Sub_Flow"/>
+    </sub-flow>
+    <sub-flow name="process-users-Sub_Flow">
+        <foreach doc:name="For Each">
+            <set-variable variableName="holdUserBean" value="#[payload]" doc:name="Variable - hold UserBean"/>
+            <json:object-to-json-transformer doc:name="Object to JSON"/>
+            <flow-ref name="route-to-create-user-based-on-type-Sub_Flow" doc:name="route-to-create-user-based-on-type-Sub_Flow"/>
+            <logger message="return account id from create process :: #[payload]" level="INFO" doc:name="Logger - show returned value from create process"/>
+            <set-variable variableName="accountId" value="#[payload]" doc:name="Variable - hold accountId"/>
+            <set-payload value="#[flowVars.holdUserBean]" doc:name="Set Payload - holdUserBean"/>
+            <expression-component doc:name="Expression - set account id"><![CDATA[#[payload.setAccountId(flowVars.accountId)]]]></expression-component>
+        </foreach>
+    </sub-flow> 
+    
+    <sub-flow name="route-to-create-user-based-on-type-Sub_Flow">
+        <set-variable variableName="userRoleType" value="#[json:userRoleType]" doc:name="Variable - userRoleType"/>
+        <logger message="before choice, user type = #[flowVars.userRoleType]" level="INFO" doc:name="Logger"/>
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.userRoleType == 'customer']">
+                <logger message="customer creation" level="INFO" doc:name="Logger - customer"/>
+                <set-variable variableName="role-type" value="1" doc:name="Variable - customer role-type"/>
+                <flow-ref name="create-user-process-Sub_Flow" doc:name="create-user-process-Sub_Flow"/>
+            </when>
+            <when expression="#[flowVars.userRoleType == 'merchant']">
+                <logger message="merchant creation" level="INFO" doc:name="Logger - merchant"/>
+                <set-variable variableName="role-type" value="2" doc:name="Variable - merchant role-type"/>
+                <flow-ref name="create-user-process-Sub_Flow" doc:name="create-user-process-Sub_Flow"/>
+            </when>
+            <otherwise>
+                <logger message="************ Invalid value passed in for creation, value : #[json:userRoleType]" level="INFO" doc:name="Logger - not valid"/>
+            </otherwise>
+        </choice>
+    </sub-flow>
+    
+    <sub-flow name="write-data-to-file-Sub_Flow">
+        <logger message="write data to file" level="INFO" doc:name="Logger"/>
+        <logger message="before write file, numAccountsCreated = #[flowVars.numAccountsCreated]" level="INFO" doc:name="Logger"/>
+        <component class="com.modusbox.component.UserAccountPreparationComponent" doc:name="Java - prepare data for csv"/>
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.numAccountsCreated &gt; 0]">
+                <logger message="new accounts created so will be writing file" level="INFO" doc:name="Logger - accounts created"/>
+                <component class="com.modusbox.component.WriteUserAccounts" doc:name="Java - write csv"/>
+                <set-payload value="{ &quot;message&quot; : &quot;completed creating data&quot;, &quot;status&quot; : &quot;successful&quot;, &quot;numAccountsCreated&quot; : &quot;#[flowVars.numAccountsCreated]&quot; }" doc:name="Set Payload"/>
+            </when>
+            <otherwise>
+                <logger message="No new accounts created so not writing file" level="INFO" doc:name="Logger - no accounts created"/>
+                <set-payload value="{ &quot;message&quot; : &quot;No new accounts created&quot;, &quot;status&quot; : &quot;not successful&quot;, &quot;numAccountsCreated&quot; : &quot;#[flowVars.numAccountsCreated]&quot; }" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+    </sub-flow>
+    
+</mule>

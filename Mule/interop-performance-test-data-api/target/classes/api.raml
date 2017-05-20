@@ -1,0 +1,83 @@
+#%RAML 1.0
+title: interop-performance-data-
+version: .1
+
+description: To create test users and merchants for the L1P performance test. And to write this data to a CSV file So the data can be used by the performance test Space written in JMeter
+protocols: HTTP
+mediaType: application/json
+
+
+types:
+  
+  CreateUserOptions:
+    type: object
+    properties: 
+      numberOfUsersToCreate:
+        type: integer 
+        required: true
+        minimum: 1
+        maximum: 10000
+      phoneNameRoot:
+        type: string
+        required: true
+        description: "The name of the phone that this user is created for"
+        example: "bob170510"
+      accountNameRoot:
+        type: string
+        required: true
+        minLength: 5
+        description: "The name of the account this phone is associated with"
+        example: "perfTestUser"
+      accountNameSequence:
+        type: integer
+        required: true
+        description: "The sequence number to start Appending to the account name"
+        minimum: 1
+      testRunSequence:
+        type: integer
+        minimum: 1
+        maximum: 99
+        required: true
+        default: 1
+      userRoleType:
+        type: string
+        required: true
+        enum: [customer, merchant, agent]
+        default: customer
+    example: |
+      {
+        "numberOfUsersToCreate" : 50,
+        "phoneNameRoot" : "bob170509-1",
+        "accountNameRoot" : "performtest",
+        "accountNameSequence" : 1,
+        "testRunSequence" : 1,
+        "userRoleType" : "customer"
+      }
+  
+  CreateUserResponse:
+    type: object
+    properties:
+      message: 
+        type: string
+        required: true
+      status:
+        type: string
+        required: true
+        enum: [ success, failure ]
+  
+baseUri: /l1p/performance-test/test-data/create/
+
+/Users:
+  displayName: "Create users in central directory for tests"
+  description: "Create needed data in both the DFsp1 and 2 for Send Money tests"
+  
+  post:
+    description: creates users in both dfsp1 and dfsp2
+    body: 
+      application/json:
+        type: CreateUserOptions
+    responses: 
+      200:
+        body: 
+          application/json:
+            type: CreateUserResponse

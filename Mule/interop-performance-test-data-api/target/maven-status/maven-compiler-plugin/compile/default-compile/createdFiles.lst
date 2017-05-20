@@ -1,0 +1,6 @@
+com/modusbox/bean/SpreadsheetRecordBean.class
+com/modusbox/component/ParseCreateUserResponseComponent.class
+com/modusbox/component/WriteUserAccounts.class
+com/modusbox/component/UserAccountPreparationComponent.class
+com/modusbox/component/CreateTestData.class
+com/modusbox/bean/UserBean.class
