@@ -68,7 +68,7 @@ public class ParseCreateUserResponseComponentTest extends SimpleCallableJavaComp
 		assertEquals("123", ssrb.getSenderAccountId());
 		assertEquals("Bob1", ssrb.getSenderAccountName());
 		assertEquals("bobPhone1", ssrb.getSenderPhoneName());
-		assertEquals("customer", ssrb.getSenderuserRoleType());
+		assertEquals("customer", ssrb.getSenderUserRoleType());
 		
 		assertEquals("789", ssrb.getReceiverAccountId());
 		assertEquals("Alice2", ssrb.getReceiverAccountName());
@@ -87,7 +87,7 @@ public class ParseCreateUserResponseComponentTest extends SimpleCallableJavaComp
 		assertEquals("789", ssrb.getSenderAccountId());
 		assertEquals("Alice2", ssrb.getSenderAccountName());
 		assertEquals("AlicePhone2", ssrb.getSenderPhoneName());
-		assertEquals("customer", ssrb.getSenderuserRoleType());
+		assertEquals("customer", ssrb.getSenderUserRoleType());
 	}
 	
 	

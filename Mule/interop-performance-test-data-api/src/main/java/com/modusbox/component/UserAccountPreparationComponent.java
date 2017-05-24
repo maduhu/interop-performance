@@ -44,13 +44,16 @@ public class UserAccountPreparationComponent implements Callable {
 			csvEntry.setSenderAccountId(dfsp1UserBean.getAccountId());
 			csvEntry.setSenderAccountName(dfsp1UserBean.getAccountName());
 			csvEntry.setSenderPhoneName(dfsp1UserBean.getPhoneName());
-			csvEntry.setSenderuserRoleType(dfsp1UserBean.getUserRoleType());
+			csvEntry.setSenderUserRoleType(dfsp1UserBean.getUserRoleType());
+			csvEntry.setSenderUUID(java.util.UUID.randomUUID().toString());
+			
 
 			csvEntry.setReceiverDfsp("dfsp2");
 			csvEntry.setReceiverAccountId(dfsp2UserBean.getAccountId());
 			csvEntry.setReceiverAccountName(dfsp2UserBean.getAccountName());
 			csvEntry.setReceiverPhoneName(dfsp2UserBean.getPhoneName());
 			csvEntry.setReceiverUserRoleType(dfsp2UserBean.getUserRoleType());
+			csvEntry.setReceiverUUID(java.util.UUID.randomUUID().toString());
 			
 			if (dfsp1UserBean.getAccountId() != null && dfsp1UserBean.getAccountId().length() >= 0 && dfsp2UserBean.getAccountId() != null && dfsp2UserBean.getAccountId().length() >= 0) {
 				System.out.println(" ** CSV file preparation -- " + dfsp1UserBean.getPhoneName() + " We have an account ID, so adding it to csv array");
@@ -70,13 +73,15 @@ public class UserAccountPreparationComponent implements Callable {
 			csvEntry.setSenderAccountId(dfsp2UserBean.getAccountId());
 			csvEntry.setSenderAccountName(dfsp2UserBean.getAccountName());
 			csvEntry.setSenderPhoneName(dfsp2UserBean.getPhoneName());
-			csvEntry.setSenderuserRoleType(dfsp2UserBean.getUserRoleType());
+			csvEntry.setSenderUserRoleType(dfsp2UserBean.getUserRoleType());
+			csvEntry.setSenderUUID(java.util.UUID.randomUUID().toString());
 
 			csvEntry.setReceiverDfsp("dfsp1");
 			csvEntry.setReceiverAccountId(dfsp1UserBean.getAccountId());
 			csvEntry.setReceiverAccountName(dfsp1UserBean.getAccountName());
 			csvEntry.setReceiverPhoneName(dfsp1UserBean.getPhoneName());
 			csvEntry.setReceiverUserRoleType(dfsp1UserBean.getUserRoleType());
+			csvEntry.setReceiverUUID(java.util.UUID.randomUUID().toString());
 			
 			
 			if (dfsp1UserBean.getAccountId() != null && dfsp1UserBean.getAccountId().length() >= 0 && dfsp2UserBean.getAccountId() != null && dfsp2UserBean.getAccountId().length() >= 0) {

@@ -32,7 +32,8 @@ public class WriteUserAccounts implements Callable {
 		MuleMessage message = eventContext.getMessage();
 
 		String userRoleType = message.getProperty("userRoleType", PropertyScope.SESSION);
-		String filename = userRoleType + "TestingData.csv";
+		String environment = message.getProperty("muleEnv", PropertyScope.SESSION);
+		String filename = userRoleType + environment + "TestingData.csv";
 		String temporaryDir = System.getProperty("java.io.tmpdir");
 		String qualifiedFilename = temporaryDir + filename;
 				

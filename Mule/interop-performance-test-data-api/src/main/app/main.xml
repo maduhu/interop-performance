@@ -35,6 +35,7 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
         <set-session-variable variableName="accountNameRoot" value="#[json:accountNameRoot]" doc:name="Session Variable - accountNameRoot"/>
         <set-session-variable variableName="testRunSequence" value="#[json:testRunSequence]" doc:name="Session Variable - testRunSequence"/>
         <set-session-variable variableName="userRoleType" value="#[json:userRoleType]" doc:name="Session Variable - userRoleType"/>
+        <set-session-variable variableName="muleEnv" value="${MULE_ENV}" doc:name="Session Variable - mule_env"/>
         <logger message="num users :: #[json:numberOfUsersToCreate]" level="INFO" doc:name="Logger"/>
     </sub-flow>
     

@@ -1,13 +1,12 @@
 package com.l1p.interop;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
-import static org.junit.Assert.*;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+
 import org.junit.Test;
 import org.mule.DefaultMuleEventContext;
 import org.mule.api.MuleEvent;
@@ -35,12 +34,14 @@ public class WriteUserAccountsTest extends SimpleCallableJavaComponentTestCase {
 		bean.setReceiverDfsp("dfsp2");
 		bean.setReceiverPhoneName("receivingPhoneName");
 		bean.setReceiverUserRoleType(roleType);
+		bean.setReceiverUUID("1234");
 		
 		bean.setSenderAccountId("9876543421");
 		bean.setSenderAccountName("senderAccountName");
 		bean.setSenderDfsp("dfsp1");
 		bean.setSenderPhoneName("sendingPhoneName");
-		bean.setSenderuserRoleType(roleType);
+		bean.setSenderUserRoleType(roleType);
+		bean.setSenderUUID("9876");
 		
 		data.add(bean);
 		
@@ -81,13 +82,15 @@ public class WriteUserAccountsTest extends SimpleCallableJavaComponentTestCase {
 	    assertEquals("9876543421", record.getSenderAccountId());
 	    assertEquals("senderAccountName", record.getSenderAccountName());
 	    assertEquals("sendingPhoneName", record.getSenderPhoneName());
-	    assertEquals(roleType, record.getSenderuserRoleType());
+	    assertEquals(roleType, record.getSenderUserRoleType());
+	    assertEquals("9876", record.getSenderUUID());
 	    
 	    assertEquals("dfsp2", record.getReceiverDfsp());
 	    assertEquals("12345", record.getReceiverAccountId());
 	    assertEquals("receiverAccountName", record.getReceiverAccountName());
 	    assertEquals("receivingPhoneName", record.getReceiverPhoneName());
 	    assertEquals(roleType, record.getReceiverUserRoleType());
+	    assertEquals("1234", record.getReceiverUUID());
 	    
         
 	}
