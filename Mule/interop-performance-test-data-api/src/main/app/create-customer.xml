@@ -76,9 +76,14 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
         <set-payload value="{     &quot;phone&quot;: &quot;#[flowVars.phoneName]&quot;,     &quot;message&quot;: &quot;#[flowVars.accountName]&quot; }" mimeType="application/json" doc:name="Set Payload - account name"/>
         <flow-ref name="call-ussd-post-Sub_Flow" doc:name="call-ussd-post-Sub_Flow"/>
         <logger message="response from accountname :: #[payload]" level="INFO" doc:name="Logger"/>
+        <logger message="================= *** before choice to determine if we need to enter customer type:  #[sessionVars.muleEnv] ***** =================" level="INFO" doc:name="Logger"/>
         <choice doc:name="Choice">
-            <when expression="#[sessionVars.muleEnv == 'perf']">
-                <logger message="Env = ${MULE_ENV} so skipping the Customer Type " level="INFO" doc:name="Logger - env Performance"/>
+            <when expression="#[sessionVars.muleEnv == 'perf'  ]">
+                <logger message="Env = ${MULE_ENV} so skipping the create Customer Type  PERMFORMANCE" level="INFO" doc:name="Logger - env Performance"/>
+                <flow-ref name="open-new-customer-pin-Sub_Flow" doc:name="open-new-customer-pin-Sub_Flow"/>
+            </when>
+            <when expression="#[sessionVars.muleEnv == 'qa'  ]">
+                <logger message="Env = ${MULE_ENV} so skipping the create Customer Type   QA" level="INFO" doc:name="Logger - env QA"/>
                 <flow-ref name="open-new-customer-pin-Sub_Flow" doc:name="open-new-customer-pin-Sub_Flow"/>
             </when>
             <otherwise>

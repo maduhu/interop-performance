@@ -14,8 +14,6 @@ public class CreateTestData implements Callable {
 	
 	private Integer numberOfUsersToCreate;
 	private String phoneNameRoot;
-	private String accountNameRoot;
-	private int accountNameSequence;
 	private int testRunSequence;
 	private String userRoleType;
 
@@ -28,12 +26,16 @@ public class CreateTestData implements Callable {
 		//
 		numberOfUsersToCreate = message.getProperty("numberOfUsersToCreate", PropertyScope.SESSION, 1);
 		phoneNameRoot = message.getProperty("phoneNameRoot", PropertyScope.SESSION);
-		accountNameRoot = message.getProperty("accountNameRoot", PropertyScope.SESSION);
-		testRunSequence = (int) message.getProperty("testRunSequence", PropertyScope.SESSION, 1);
+		testRunSequence = message.getProperty("testRunSequence", PropertyScope.SESSION, 1);
 		userRoleType = message.getProperty("userRoleType", PropertyScope.SESSION);
 
-		message.setProperty("dfsp1_users", createData("1"), PropertyScope.SESSION);
-		message.setProperty("dfsp2_users", createData("2"), PropertyScope.SESSION);
+		List<UserBean> users = createData("1");
+		message.setProperty("dfsp1_users", users, PropertyScope.SESSION);
+		dumpUserData(users);
+		
+		users = createData("2");
+		message.setProperty("dfsp2_users", users, PropertyScope.SESSION);
+		dumpUserData(users);
 		
 		return "done";
 	}
@@ -42,16 +44,27 @@ public class CreateTestData implements Callable {
 	private List<UserBean> createData(String dfsp) {
 		List<UserBean> users = new ArrayList<UserBean>();
 		UserBean user = null;
+		String phoneNameAndAccount = null;
 		
-		for (int i=accountNameSequence; i<numberOfUsersToCreate+accountNameSequence; i++)  {
+		for (int i=1; i<=numberOfUsersToCreate; i++)  {
 			user = new UserBean();
-			user.setPhoneName(phoneNameRoot + "-" + testRunSequence + "-" + i + dfsp);
-			user.setAccountName(accountNameRoot + "-" + testRunSequence + "-" + i + dfsp);
+			phoneNameAndAccount = phoneNameRoot + "-" + testRunSequence + "-" + i + "-" + dfsp;
+			System.out.println("phoneNameAndAccount = " + phoneNameAndAccount);
+			user.setPhoneName(phoneNameAndAccount);
+			user.setAccountName("PT-" + phoneNameAndAccount);
 			user.setUserRoleType(userRoleType);
 			users.add(user);
 		}
 		
 		return users;
+	}
+	
+	
+	private void dumpUserData(List<UserBean> users) {
+		System.out.println("********************************************** dumping user data **********************************************");
+		for (UserBean userBean : users) {
+			System.out.println(userBean);
+		}
 	}
 
 }

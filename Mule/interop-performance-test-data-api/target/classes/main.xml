@@ -32,7 +32,6 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
         <logger message="extract payload data" level="INFO" doc:name="Logger"/>
         <set-session-variable variableName="numberOfUsersToCreate" value="#[json:numberOfUsersToCreate]" doc:name="Session Variable - numberOfUsersToCreate"/>
         <set-session-variable variableName="phoneNameRoot" value="#[json:phoneNameRoot]" doc:name="Session Variable - phoneNameRoot"/>
-        <set-session-variable variableName="accountNameRoot" value="#[json:accountNameRoot]" doc:name="Session Variable - accountNameRoot"/>
         <set-session-variable variableName="testRunSequence" value="#[json:testRunSequence]" doc:name="Session Variable - testRunSequence"/>
         <set-session-variable variableName="userRoleType" value="#[json:userRoleType]" doc:name="Session Variable - userRoleType"/>
         <set-session-variable variableName="muleEnv" value="${MULE_ENV}" doc:name="Session Variable - mule_env"/>

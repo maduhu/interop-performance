@@ -1,0 +1,164 @@
+2017/06/02 13:22:57 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_US 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: Loading user properties from: /usr/local/Cellar/jmeter/3.1/libexec/bin/user.properties 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: Loading system properties from: /usr/local/Cellar/jmeter/3.1/libexec/bin/system.properties 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: Copyright (c) 1998-2016 The Apache Software Foundation 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: Version 3.1 r1770033 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: java.version=1.8.0_131 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: os.name=Mac OS X 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: os.arch=x86_64 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: os.version=10.12.5 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: file.encoding=UTF-8 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: Max memory     =514850816 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: Available Processors =8 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: Default Locale=English (United States) 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: JMeter  Locale=English (United States) 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: JMeterHome=/usr/local/Cellar/jmeter/3.1/libexec 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: user.dir  =/Users/priceb/Development/Workspaces/AnypointStudio/GatesOSS/interop-performance/JMeter/jmeter_scripts 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: PWD       =/Users/priceb/Development/Workspaces/AnypointStudio/GatesOSS/interop-performance/JMeter/jmeter_scripts 
+2017/06/02 13:22:57 INFO  - jmeter.JMeter: IP: 10.0.1.9 Name: Brians-MacBook-Pro.local FullName: 10.0.1.9 
+2017/06/02 13:22:57 INFO  - jmeter.services.FileServer: Default base='/Users/priceb/Development/Workspaces/AnypointStudio/GatesOSS/interop-performance/JMeter/jmeter_scripts' 
+2017/06/02 13:22:57 INFO  - jmeter.services.FileServer: Set new base='/Users/priceb/Development/Workspaces/AnypointStudio/GatesOSS/interop-performance/JMeter/jmeter_scripts' 
+2017/06/02 13:22:58 INFO  - jmeter.save.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2 
+2017/06/02 13:22:58 INFO  - jmeter.save.SaveService: Using SaveService properties file encoding UTF-8 
+2017/06/02 13:22:58 INFO  - jmeter.save.SaveService: Using SaveService properties version 3.1 
+2017/06/02 13:22:58 INFO  - jmeter.save.SaveService: All converter versions present and correct 
+2017/06/02 13:22:58 INFO  - jmeter.save.SaveService: Loading file: ILP-Ledger-Adapter-Performance-Tests.jmx 
+2017/06/02 13:22:58 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2017/06/02 13:22:58 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2017/06/02 13:22:58 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2017/06/02 13:22:58 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2017/06/02 13:22:58 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser 
+2017/06/02 13:22:58 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser 
+2017/06/02 13:22:58 INFO  - jmeter.JMeter: Creating summariser <summary> 
+2017/06/02 13:22:58 INFO  - jmeter.engine.StandardJMeterEngine: Running the test! 
+2017/06/02 13:22:58 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2017/06/02 13:22:58 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2017/06/02 13:22:58 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must contain the string: '.functions.' 
+2017/06/02 13:22:58 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must not contain the string: '.gui.' 
+2017/06/02 13:22:58 INFO  - jmeter.JMeter: Running test (1496431378789) 
+2017/06/02 13:22:58 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 1 : ILP Ledger Adapter Tests - CSV based - Thread Group 
+2017/06/02 13:22:58 INFO  - jmeter.engine.StandardJMeterEngine: Starting 1 threads for group ILP Ledger Adapter Tests - CSV based - Thread Group. 
+2017/06/02 13:22:58 INFO  - jmeter.engine.StandardJMeterEngine: Thread will start next loop on error 
+2017/06/02 13:22:58 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 1 threads 1 ramp-up 4 perThread 4000.0 delayedStart=false 
+2017/06/02 13:22:58 INFO  - jmeter.threads.ThreadGroup: Started thread group number 1 
+2017/06/02 13:22:58 INFO  - jmeter.engine.StandardJMeterEngine: All thread groups have been started 
+2017/06/02 13:22:58 INFO  - jmeter.threads.JMeterThread: Thread started: ILP Ledger Adapter Tests - CSV based - Thread Group 1-1 
+2017/06/02 13:22:58 INFO  - jmeter.services.FileServer: Stored: data/customerPerformanceTestingData.csv 
+2017/06/02 13:22:58 INFO  - jmeter.protocol.http.sampler.HTTPHCAbstractImpl: Local host = Brians-MacBook-Pro.local 
+2017/06/02 13:22:58 INFO  - jmeter.protocol.http.sampler.HTTPHC4Impl: HTTP request retry count = 0 
+2017/06/02 13:22:58 INFO  - jmeter.samplers.SampleResult: Note: Sample TimeStamps are START times 
+2017/06/02 13:22:58 INFO  - jmeter.samplers.SampleResult: sampleresult.default.encoding is set to ISO-8859-1 
+2017/06/02 13:22:58 INFO  - jmeter.samplers.SampleResult: sampleresult.useNanoTime=true 
+2017/06/02 13:22:58 INFO  - jmeter.samplers.SampleResult: sampleresult.nanoThreadSleep=5000 
+2017/06/02 13:23:00 INFO  - jmeter.reporters.Summariser: summary +     11 in 00:00:01 =    8.9/s Avg:    95 Min:    67 Max:   301 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:23:30 INFO  - jmeter.reporters.Summariser: summary +    232 in 00:00:30 =    7.7/s Avg:   128 Min:    49 Max:  3940 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:23:30 INFO  - jmeter.reporters.Summariser: summary =    243 in 00:00:31 =    7.7/s Avg:   127 Min:    49 Max:  3940 Err:     0 (0.00%) 
+2017/06/02 13:24:00 INFO  - jmeter.reporters.Summariser: summary +    393 in 00:00:30 =   13.2/s Avg:    74 Min:    49 Max:   370 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:24:00 INFO  - jmeter.reporters.Summariser: summary =    636 in 00:01:01 =   10.4/s Avg:    94 Min:    49 Max:  3940 Err:     0 (0.00%) 
+2017/06/02 13:24:30 INFO  - jmeter.reporters.Summariser: summary +    258 in 00:00:30 =    8.6/s Avg:   115 Min:    49 Max:   532 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:24:30 INFO  - jmeter.reporters.Summariser: summary =    894 in 00:01:31 =    9.8/s Avg:   100 Min:    49 Max:  3940 Err:     0 (0.00%) 
+2017/06/02 13:25:00 INFO  - jmeter.reporters.Summariser: summary +    380 in 00:00:30 =   12.6/s Avg:    78 Min:    48 Max:   654 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:25:00 INFO  - jmeter.reporters.Summariser: summary =   1274 in 00:02:01 =   10.5/s Avg:    94 Min:    48 Max:  3940 Err:     0 (0.00%) 
+2017/06/02 13:25:30 INFO  - jmeter.reporters.Summariser: summary +    421 in 00:00:30 =   14.1/s Avg:    70 Min:    48 Max:   206 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:25:30 INFO  - jmeter.reporters.Summariser: summary =   1695 in 00:02:31 =   11.2/s Avg:    88 Min:    48 Max:  3940 Err:     0 (0.00%) 
+2017/06/02 13:26:00 INFO  - jmeter.reporters.Summariser: summary +    322 in 00:00:30 =   10.7/s Avg:    92 Min:    49 Max:  4556 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:26:00 INFO  - jmeter.reporters.Summariser: summary =   2017 in 00:03:01 =   11.1/s Avg:    88 Min:    48 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:26:30 INFO  - jmeter.reporters.Summariser: summary +    411 in 00:00:30 =   13.7/s Avg:    72 Min:    49 Max:   338 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:26:30 INFO  - jmeter.reporters.Summariser: summary =   2428 in 00:03:31 =   11.5/s Avg:    86 Min:    48 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:27:00 INFO  - jmeter.reporters.Summariser: summary +    460 in 00:00:30 =   15.3/s Avg:    64 Min:    48 Max:   334 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:27:00 INFO  - jmeter.reporters.Summariser: summary =   2888 in 00:04:01 =   12.0/s Avg:    82 Min:    48 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:27:30 INFO  - jmeter.reporters.Summariser: summary +    459 in 00:00:30 =   15.3/s Avg:    64 Min:    48 Max:   340 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:27:30 INFO  - jmeter.reporters.Summariser: summary =   3347 in 00:04:31 =   12.3/s Avg:    80 Min:    48 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:28:00 INFO  - jmeter.reporters.Summariser: summary +    445 in 00:00:30 =   14.8/s Avg:    66 Min:    49 Max:   324 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:28:00 INFO  - jmeter.reporters.Summariser: summary =   3792 in 00:05:01 =   12.6/s Avg:    78 Min:    48 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:28:30 INFO  - jmeter.reporters.Summariser: summary +    436 in 00:00:30 =   14.6/s Avg:    68 Min:    49 Max:   335 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:28:30 INFO  - jmeter.reporters.Summariser: summary =   4228 in 00:05:31 =   12.8/s Avg:    77 Min:    48 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:29:00 INFO  - jmeter.reporters.Summariser: summary +    443 in 00:00:30 =   14.8/s Avg:    67 Min:    48 Max:   329 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:29:00 INFO  - jmeter.reporters.Summariser: summary =   4671 in 00:06:01 =   12.9/s Avg:    76 Min:    48 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:29:30 INFO  - jmeter.reporters.Summariser: summary +    412 in 00:00:30 =   13.7/s Avg:    72 Min:    49 Max:   307 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:29:30 INFO  - jmeter.reporters.Summariser: summary =   5083 in 00:06:31 =   13.0/s Avg:    76 Min:    48 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:30:00 INFO  - jmeter.reporters.Summariser: summary +    479 in 00:00:30 =   16.0/s Avg:    62 Min:    48 Max:   336 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:30:00 INFO  - jmeter.reporters.Summariser: summary =   5562 in 00:07:01 =   13.2/s Avg:    75 Min:    48 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:30:30 INFO  - jmeter.reporters.Summariser: summary +    244 in 00:00:30 =    8.1/s Avg:   122 Min:    49 Max:  4294 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:30:30 INFO  - jmeter.reporters.Summariser: summary =   5806 in 00:07:31 =   12.9/s Avg:    77 Min:    48 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:31:00 INFO  - jmeter.reporters.Summariser: summary +    424 in 00:00:30 =   14.1/s Avg:    70 Min:    49 Max:   370 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:31:00 INFO  - jmeter.reporters.Summariser: summary =   6230 in 00:08:01 =   12.9/s Avg:    76 Min:    48 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:31:30 INFO  - jmeter.reporters.Summariser: summary +    466 in 00:00:30 =   15.6/s Avg:    63 Min:    49 Max:   340 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:31:30 INFO  - jmeter.reporters.Summariser: summary =   6696 in 00:08:31 =   13.1/s Avg:    75 Min:    48 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:32:00 INFO  - jmeter.reporters.Summariser: summary +    486 in 00:00:30 =   16.2/s Avg:    61 Min:    49 Max:   314 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:32:00 INFO  - jmeter.reporters.Summariser: summary =   7182 in 00:09:01 =   13.3/s Avg:    74 Min:    48 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:32:30 INFO  - jmeter.reporters.Summariser: summary +    481 in 00:00:30 =   16.0/s Avg:    61 Min:    48 Max:   310 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:32:30 INFO  - jmeter.reporters.Summariser: summary =   7663 in 00:09:31 =   13.4/s Avg:    73 Min:    48 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:33:00 INFO  - jmeter.reporters.Summariser: summary +    435 in 00:00:30 =   14.5/s Avg:    68 Min:    47 Max:   320 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:33:00 INFO  - jmeter.reporters.Summariser: summary =   8098 in 00:10:01 =   13.5/s Avg:    73 Min:    47 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:33:30 INFO  - jmeter.reporters.Summariser: summary +    485 in 00:00:30 =   16.2/s Avg:    61 Min:    48 Max:   300 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:33:30 INFO  - jmeter.reporters.Summariser: summary =   8583 in 00:10:31 =   13.6/s Avg:    72 Min:    47 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:34:00 INFO  - jmeter.reporters.Summariser: summary +    431 in 00:00:30 =   14.4/s Avg:    69 Min:    48 Max:   393 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:34:00 INFO  - jmeter.reporters.Summariser: summary =   9014 in 00:11:01 =   13.6/s Avg:    72 Min:    47 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:34:30 INFO  - jmeter.reporters.Summariser: summary +    451 in 00:00:30 =   15.0/s Avg:    66 Min:    49 Max:   360 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:34:30 INFO  - jmeter.reporters.Summariser: summary =   9465 in 00:11:31 =   13.7/s Avg:    72 Min:    47 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:35:00 INFO  - jmeter.reporters.Summariser: summary +    483 in 00:00:30 =   16.1/s Avg:    61 Min:    48 Max:   226 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:35:00 INFO  - jmeter.reporters.Summariser: summary =   9948 in 00:12:01 =   13.8/s Avg:    71 Min:    47 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:35:30 INFO  - jmeter.reporters.Summariser: summary +    422 in 00:00:30 =   14.1/s Avg:    70 Min:    49 Max:   456 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:35:30 INFO  - jmeter.reporters.Summariser: summary =  10370 in 00:12:31 =   13.8/s Avg:    71 Min:    47 Max:  4556 Err:     0 (0.00%) 
+2017/06/02 13:36:00 INFO  - jmeter.reporters.Summariser: summary +    308 in 00:00:30 =   10.3/s Avg:    97 Min:    48 Max:  8105 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:36:00 INFO  - jmeter.reporters.Summariser: summary =  10678 in 00:13:01 =   13.7/s Avg:    72 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:36:30 INFO  - jmeter.reporters.Summariser: summary +    370 in 00:00:30 =   12.3/s Avg:    80 Min:    49 Max:   478 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:36:30 INFO  - jmeter.reporters.Summariser: summary =  11048 in 00:13:31 =   13.6/s Avg:    72 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:37:00 INFO  - jmeter.reporters.Summariser: summary +    313 in 00:00:30 =   10.4/s Avg:    95 Min:    49 Max:   946 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:37:00 INFO  - jmeter.reporters.Summariser: summary =  11361 in 00:14:01 =   13.5/s Avg:    73 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:37:30 INFO  - jmeter.reporters.Summariser: summary +    302 in 00:00:30 =   10.1/s Avg:    99 Min:    49 Max:  1156 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:37:30 INFO  - jmeter.reporters.Summariser: summary =  11663 in 00:14:31 =   13.4/s Avg:    74 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:38:00 INFO  - jmeter.reporters.Summariser: summary +    436 in 00:00:30 =   14.5/s Avg:    68 Min:    49 Max:   407 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:38:00 INFO  - jmeter.reporters.Summariser: summary =  12099 in 00:15:01 =   13.4/s Avg:    73 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:38:30 INFO  - jmeter.reporters.Summariser: summary +    435 in 00:00:30 =   14.5/s Avg:    68 Min:    49 Max:   189 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:38:30 INFO  - jmeter.reporters.Summariser: summary =  12534 in 00:15:31 =   13.5/s Avg:    73 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:39:00 INFO  - jmeter.reporters.Summariser: summary +    394 in 00:00:30 =   13.1/s Avg:    75 Min:    48 Max:   345 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:39:00 INFO  - jmeter.reporters.Summariser: summary =  12928 in 00:16:01 =   13.4/s Avg:    73 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:39:30 INFO  - jmeter.reporters.Summariser: summary +    494 in 00:00:30 =   16.5/s Avg:    60 Min:    47 Max:   324 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:39:30 INFO  - jmeter.reporters.Summariser: summary =  13422 in 00:16:31 =   13.5/s Avg:    73 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:40:00 INFO  - jmeter.reporters.Summariser: summary +    456 in 00:00:30 =   15.2/s Avg:    65 Min:    49 Max:   341 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:40:00 INFO  - jmeter.reporters.Summariser: summary =  13878 in 00:17:01 =   13.6/s Avg:    73 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:40:30 INFO  - jmeter.reporters.Summariser: summary +    457 in 00:00:30 =   15.2/s Avg:    65 Min:    49 Max:   248 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:40:30 INFO  - jmeter.reporters.Summariser: summary =  14335 in 00:17:31 =   13.6/s Avg:    72 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:41:00 INFO  - jmeter.reporters.Summariser: summary +    451 in 00:00:30 =   15.1/s Avg:    65 Min:    48 Max:   310 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:41:00 INFO  - jmeter.reporters.Summariser: summary =  14786 in 00:18:01 =   13.7/s Avg:    72 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:41:30 INFO  - jmeter.reporters.Summariser: summary +    449 in 00:00:30 =   14.9/s Avg:    66 Min:    48 Max:   319 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:41:30 INFO  - jmeter.reporters.Summariser: summary =  15235 in 00:18:31 =   13.7/s Avg:    72 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:42:00 INFO  - jmeter.reporters.Summariser: summary +    490 in 00:00:30 =   16.4/s Avg:    60 Min:    49 Max:   307 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:42:00 INFO  - jmeter.reporters.Summariser: summary =  15725 in 00:19:01 =   13.8/s Avg:    72 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:42:30 INFO  - jmeter.reporters.Summariser: summary +    495 in 00:00:30 =   16.5/s Avg:    60 Min:    49 Max:   513 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:42:30 INFO  - jmeter.reporters.Summariser: summary =  16220 in 00:19:31 =   13.8/s Avg:    71 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:43:00 INFO  - jmeter.reporters.Summariser: summary +    483 in 00:00:30 =   16.1/s Avg:    61 Min:    47 Max:   305 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:43:00 INFO  - jmeter.reporters.Summariser: summary =  16703 in 00:20:01 =   13.9/s Avg:    71 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:43:30 INFO  - jmeter.reporters.Summariser: summary +    466 in 00:00:30 =   15.5/s Avg:    63 Min:    49 Max:   304 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:43:30 INFO  - jmeter.reporters.Summariser: summary =  17169 in 00:20:31 =   13.9/s Avg:    71 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:44:00 INFO  - jmeter.reporters.Summariser: summary +    467 in 00:00:30 =   15.6/s Avg:    63 Min:    49 Max:   148 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:44:00 INFO  - jmeter.reporters.Summariser: summary =  17636 in 00:21:01 =   14.0/s Avg:    71 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:44:30 INFO  - jmeter.reporters.Summariser: summary +    478 in 00:00:30 =   15.9/s Avg:    62 Min:    49 Max:   430 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:44:30 INFO  - jmeter.reporters.Summariser: summary =  18114 in 00:21:31 =   14.0/s Avg:    70 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:45:00 INFO  - jmeter.reporters.Summariser: summary +    465 in 00:00:30 =   15.5/s Avg:    64 Min:    49 Max:   319 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:45:00 INFO  - jmeter.reporters.Summariser: summary =  18579 in 00:22:01 =   14.1/s Avg:    70 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:45:30 INFO  - jmeter.reporters.Summariser: summary +    426 in 00:00:30 =   14.2/s Avg:    69 Min:    49 Max:   357 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:45:30 INFO  - jmeter.reporters.Summariser: summary =  19005 in 00:22:31 =   14.1/s Avg:    70 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:46:00 INFO  - jmeter.reporters.Summariser: summary +    411 in 00:00:30 =   13.7/s Avg:    72 Min:    49 Max:  4279 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:46:00 INFO  - jmeter.reporters.Summariser: summary =  19416 in 00:23:01 =   14.1/s Avg:    70 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:46:30 INFO  - jmeter.reporters.Summariser: summary +    469 in 00:00:30 =   15.6/s Avg:    63 Min:    49 Max:   387 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:46:30 INFO  - jmeter.reporters.Summariser: summary =  19885 in 00:23:31 =   14.1/s Avg:    70 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:47:00 INFO  - jmeter.reporters.Summariser: summary +    475 in 00:00:30 =   15.8/s Avg:    62 Min:    49 Max:   315 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:47:00 INFO  - jmeter.reporters.Summariser: summary =  20360 in 00:24:01 =   14.1/s Avg:    70 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:47:30 INFO  - jmeter.reporters.Summariser: summary +    495 in 00:00:30 =   16.5/s Avg:    60 Min:    48 Max:   323 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:47:30 INFO  - jmeter.reporters.Summariser: summary =  20855 in 00:24:31 =   14.2/s Avg:    70 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:48:00 INFO  - jmeter.reporters.Summariser: summary +    487 in 00:00:30 =   16.2/s Avg:    61 Min:    49 Max:   179 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:48:00 INFO  - jmeter.reporters.Summariser: summary =  21342 in 00:25:01 =   14.2/s Avg:    69 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:48:30 INFO  - jmeter.reporters.Summariser: summary +    472 in 00:00:30 =   15.7/s Avg:    63 Min:    49 Max:   315 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:48:30 INFO  - jmeter.reporters.Summariser: summary =  21814 in 00:25:31 =   14.2/s Avg:    69 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:49:00 INFO  - jmeter.reporters.Summariser: summary +    457 in 00:00:30 =   15.2/s Avg:    65 Min:    50 Max:   229 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2017/06/02 13:49:00 INFO  - jmeter.reporters.Summariser: summary =  22271 in 00:26:01 =   14.3/s Avg:    69 Min:    47 Max:  8105 Err:     0 (0.00%) 
+2017/06/02 13:49:14 INFO  - jmeter.threads.JMeterThread: Stop Thread seen for thread ILP Ledger Adapter Tests - CSV based - Thread Group 1-1, reason:org.apache.jorphan.util.JMeterStopThreadException: End of file:data/customerPerformanceTestingData.csv detected for CSV DataSet:CSV Data Set Config configured with stopThread:true, recycle:false 
+2017/06/02 13:49:14 INFO  - jmeter.threads.JMeterThread: Thread finished: ILP Ledger Adapter Tests - CSV based - Thread Group 1-1 
+2017/06/02 13:49:14 INFO  - jmeter.engine.StandardJMeterEngine: Notifying test listeners of end of test 
+2017/06/02 13:49:14 INFO  - jmeter.services.FileServer: Close: data/customerPerformanceTestingData.csv 
+2017/06/02 13:49:14 INFO  - jmeter.reporters.Summariser: summary +    229 in 00:00:15 =   15.6/s Avg:    63 Min:    49 Max:   373 Err:     0 (0.00%) Active: 0 Started: 1 Finished: 1 
+2017/06/02 13:49:14 INFO  - jmeter.reporters.Summariser: summary =  22500 in 00:26:16 =   14.3/s Avg:    69 Min:    47 Max:  8105 Err:     0 (0.00%) 

@@ -16,29 +16,20 @@ types:
         type: integer 
         required: true
         minimum: 1
-        maximum: 10000
+        maximum: 1000
+        description: "The number of users to create per dfsp"
       phoneNameRoot:
         type: string
         required: true
         description: "The name of the phone that this user is created for"
         example: "bob170510"
-      accountNameRoot:
-        type: string
-        required: true
-        minLength: 5
-        description: "The name of the account this phone is associated with"
-        example: "perfTestUser"
-      accountNameSequence:
-        type: integer
-        required: true
-        description: "The sequence number to start Appending to the account name"
-        minimum: 1
       testRunSequence:
         type: integer
         minimum: 1
         maximum: 99
         required: true
         default: 1
+        description: "The number that represents the number of runs executed for the same phoneNameRoot."
       userRoleType:
         type: string
         required: true
@@ -48,8 +39,6 @@ types:
       {
         "numberOfUsersToCreate" : 50,
         "phoneNameRoot" : "bob170509-1",
-        "accountNameRoot" : "performtest",
-        "accountNameSequence" : 1,
         "testRunSequence" : 1,
         "userRoleType" : "customer"
       }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
+<jmeterTestPlan version="1.2" properties="3.1" jmeter="3.1 r1770033">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="ModusBox Interop Performance Test QA" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="ModusBox Interop Performance Test" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
@@ -9,7 +9,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="dfsp1" elementType="Argument">
             <stringProp name="Argument.name">dfsp1</stringProp>
-            <stringProp name="Argument.value">ec2-34-209-42-253.us-west-2.compute.amazonaws.com</stringProp>
+            <stringProp name="Argument.value">ec2-34-209-21-199.us-west-2.compute.amazonaws.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Amount" elementType="Argument">
@@ -24,7 +24,7 @@
           </elementProp>
           <elementProp name="dataFile" elementType="Argument">
             <stringProp name="Argument.name">dataFile</stringProp>
-            <stringProp name="Argument.value">data/customerPerformanceTestingData.csv</stringProp>
+            <stringProp name="Argument.value">data/customerPerformanceTestingData-10000-recs.csv</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="csvPathQa" elementType="Argument">
@@ -44,12 +44,17 @@
           </elementProp>
           <elementProp name="hostname_performance_standalone" elementType="Argument">
             <stringProp name="Argument.name">hostname_performance_standalone</stringProp>
+            <stringProp name="Argument.value">ec2-34-209-21-199.us-west-2.compute.amazonaws.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="hold-hostname" elementType="Argument">
+            <stringProp name="Argument.name">hold-hostname</stringProp>
             <stringProp name="Argument.value">ec2-34-209-42-253.us-west-2.compute.amazonaws.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="hold" elementType="Argument">
-            <stringProp name="Argument.name">hold</stringProp>
-            <stringProp name="Argument.value">ec2-34-209-42-253.us-west-2.compute.amazonaws.com</stringProp>
+          <elementProp name="hold-datafile" elementType="Argument">
+            <stringProp name="Argument.name">hold-datafile</stringProp>
+            <stringProp name="Argument.value">data/customerPerformanceTestingData.csv</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -111,8 +116,8 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">128</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">4</stringProp>
+        <stringProp name="ThreadGroup.num_threads">4</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <longProp name="ThreadGroup.start_time">1486058892000</longProp>
         <longProp name="ThreadGroup.end_time">1486058892000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
@@ -164,16 +169,16 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           </elementProp>
           <stringProp name="HTTPSampler.domain">${hostname_performance_standalone}</stringProp>
           <stringProp name="HTTPSampler.port">${host_port}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path"></stringProp>
-          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
           <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
         </ConfigTestElement>
         <hashTree/>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller - Get Account - Step 1" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller - Get Account - Step 1" enabled="false"/>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
@@ -201,6 +206,8 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
             <stringProp name="HTTPSampler.path">/ilp/ledger/v1/accounts/${senderAccountId}</stringProp>
@@ -209,9 +216,8 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds Welcome" enabled="false">
@@ -270,6 +276,8 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
             <stringProp name="HTTPSampler.path">/ilp/ledger/v1/transfers/${senderUUID}</stringProp>
@@ -278,9 +286,8 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check  Destination Number" enabled="false">
@@ -294,7 +301,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller - Fulfillment Transfer - Step 3" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller - Fulfillment Transfer - Step 3" enabled="true"/>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
@@ -326,6 +333,8 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
             <stringProp name="HTTPSampler.path">/ilp/ledger/v1/transfers/${senderUUID}/fulfillment</stringProp>
@@ -334,9 +343,8 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Destination Name" enabled="false">
@@ -350,32 +358,6 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             <hashTree/>
           </hashTree>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Mock Test (put)" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value"></stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${hostname_performance_standalone}</stringProp>
-          <stringProp name="HTTPSampler.port">8014</stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/ledger/transfers/${senderUUID}</stringProp>
-          <stringProp name="HTTPSampler.method">PUT</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>

@@ -1,0 +1,3 @@
+"senderDFSP","senderName","senderUserNumber","senderAccountId","senderRoleType","senderUUID","receiverDFSP","receiverName","receiverUserNumber","receiverAccountId","receiverRoleType","receiverUUID"
+"dfsp1","cust170604-3-01","PT170604-3-01","25957847","customer","b6abe12c-cb82-4d24-afd8-8888f367db19","dfsp2","cust170604-3-02","PT170604-3-02","78679650","customer","404fa9a5-0d33-4530-a974-419951494545"
+"dfsp2","cust170604-3-02","PT170604-3-02","78679650","customer","0c4d3f9d-c5d6-41ba-ace0-01ed50f0fede","dfsp1","cust170604-3-01","PT170604-3-01","25957847","customer","190763ca-1f06-4ac8-8739-ef87a97d7f4e"
