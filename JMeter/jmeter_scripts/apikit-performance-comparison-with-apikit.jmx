@@ -47,8 +47,8 @@
             <stringProp name="Argument.value">data/customerPerformanceTestingData.csv</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="UserThreadsxxx" elementType="Argument">
-            <stringProp name="Argument.name">UserThreadsxxx</stringProp>
+          <elementProp name="UserThreads" elementType="Argument">
+            <stringProp name="Argument.name">UserThreads</stringProp>
             <stringProp name="Argument.value">16</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>

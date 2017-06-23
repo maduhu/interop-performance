@@ -82,11 +82,6 @@
             <stringProp name="Argument.value">/Users/priceb/Development/Workspaces/AnypointStudio/GatesOSS/Docs/JMeter/Performance Tests/SendMoneyUsers_qa.csv</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="ussdCommandGetBalance" elementType="Argument">
-            <stringProp name="Argument.name">ussdCommandGetBalance</stringProp>
-            <stringProp name="Argument.value">5</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
           <elementProp name="sellGoodCsvPath" elementType="Argument">
             <stringProp name="Argument.name">sellGoodCsvPath</stringProp>
             <stringProp name="Argument.value">data/merchanttestTestingData.csv</stringProp>
@@ -100,36 +95,6 @@
           <elementProp name="dfsp2_performance" elementType="Argument">
             <stringProp name="Argument.name">dfsp2_performance</stringProp>
             <stringProp name="Argument.value">ec2-54-69-54-244.us-west-2.compute.amazonaws.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="dfsp1_test" elementType="Argument">
-            <stringProp name="Argument.name">dfsp1_test</stringProp>
-            <stringProp name="Argument.value">ec2-52-32-130-4.us-west-2.compute.amazonaws.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="dfsp2_test" elementType="Argument">
-            <stringProp name="Argument.name">dfsp2_test</stringProp>
-            <stringProp name="Argument.value">ec2-35-166-236-69.us-west-2.compute.amazonaws.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="dfsp1_qa" elementType="Argument">
-            <stringProp name="Argument.name">dfsp1_qa</stringProp>
-            <stringProp name="Argument.value">ec2-35-163-231-111.us-west-2.compute.amazonaws.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="dfsp2_qa" elementType="Argument">
-            <stringProp name="Argument.name">dfsp2_qa</stringProp>
-            <stringProp name="Argument.value">ec2-35-163-249-3.us-west-2.compute.amazonaws.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="Test data file " elementType="Argument">
-            <stringProp name="Argument.name">Test data file </stringProp>
-            <stringProp name="Argument.value">customertestTestingData.csv</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="Perf date file " elementType="Argument">
-            <stringProp name="Argument.name">Perf date file </stringProp>
-            <stringProp name="Argument.value">customerPerfTestingData170605.csv</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -185,7 +150,7 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Send Money - CSV based - Thread Group" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Send Invoice - CSV based - Thread Group" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">startnextloop</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -201,7 +166,7 @@
       </ThreadGroup>
       <hashTree>
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
-          <stringProp name="filename">${sendMoneyCsvPath}</stringProp>
+          <stringProp name="filename">${sellGoodCsvPath}</stringProp>
           <stringProp name="fileEncoding"></stringProp>
           <stringProp name="variableNames"></stringProp>
           <stringProp name="delimiter">,</stringProp>
@@ -216,32 +181,20 @@
           <stringProp name="filename"></stringProp>
           <stringProp name="parameters"></stringProp>
           <boolProp name="resetInterpreter">false</boolProp>
-          <stringProp name="script">dfsp=vars.get(&quot;senderDFSP&quot;);
+          <stringProp name="script">print(&quot;=========================================&quot;);
 
-if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
+if ( vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;) ) {
+	print(&quot;just set the host to dfsp1 and approving dfsp to dfsp2&quot;);
 	vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp1}&quot;);
+	vars.put(&quot;approving_dfsp_host_var&quot;, &quot;${dfsp2}&quot;);
 } else {
+	print(&quot;just set the host to dfsp2 and approving dfsp to dfsp1&quot;);
 	vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp2}&quot;);
-}
-</stringProp>
+	vars.put(&quot;approving_dfsp_host_var&quot;, &quot;${dfsp1}&quot;);
+}</stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
-        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="Configure for DFSP1" enabled="true">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
-          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path"></stringProp>
-          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
-          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
-        </ConfigTestElement>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Connect to existing acount - Sender - step 1" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Connect to existing acount - Sender - Step 1" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -256,13 +209,13 @@ if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">${ussdPath}</stringProp>
+          <stringProp name="HTTPSampler.path">/ussd</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -272,7 +225,7 @@ if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds Welcome" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds Welcome" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="-1397214398">Welcome</stringProp>
             </collectionProp>
@@ -282,7 +235,7 @@ if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Send Money - Sender - step 2" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Sell Goods - Sender - Step 2" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -290,19 +243,19 @@ if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
     &quot;phone&quot;: &quot;${senderName}&quot;,&#xd;
-    &quot;message&quot;: &quot;1&quot;&#xd;
+    &quot;message&quot;: &quot;2&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">${ussdPath}</stringProp>
+          <stringProp name="HTTPSampler.path">/ussd</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -312,9 +265,9 @@ if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check  Destination Number" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="To initiate the sale enter the user number of the buyer" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="1038117379">Enter destination number</stringProp>
+              <stringProp name="809610780">To initiate the sale enter the user number of the buyer</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -322,7 +275,7 @@ if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Enter Destination Number of Receiver - step 3" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Enter Destination Number - Sender - Step 3" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -331,19 +284,18 @@ if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
                 <stringProp name="Argument.value">{&#xd;
     &quot;phone&quot;: &quot;${senderName}&quot;,&#xd;
     &quot;message&quot;: &quot;${receiverAccountId}&quot;&#xd;
-}&#xd;
-</stringProp>
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">${ussdPath}</stringProp>
+          <stringProp name="HTTPSampler.path">/ussd</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -355,7 +307,7 @@ if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Destination Name" enabled="false">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="949256509">Destination name: alice cooper</stringProp>
+              <stringProp name="1168000694">Destination name: bob dylan</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -363,7 +315,7 @@ if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Enter Amount - step 4" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Enter Amount - Sender - Step 4" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -372,59 +324,18 @@ if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
                 <stringProp name="Argument.value">{&#xd;
     &quot;phone&quot;: &quot;${senderName}&quot;,&#xd;
     &quot;message&quot;: &quot;${Amount}&quot;&#xd;
-}&#xd;
-</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">${ussdPath}</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check fee" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1580328199">Local fee: 0</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Enter PIN of Sender - Money is sent - step 5" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;${senderName}&quot;,&#xd;
-    &quot;message&quot;: &quot;${PIN}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">${ussdPath}</stringProp>
+          <stringProp name="HTTPSampler.path">/ussd</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -434,49 +345,17 @@ if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds with Balance:" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Invoice Sent" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="1141098055">Status: executed</stringProp>
+              <stringProp name="601683685">Invoice request sent!</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Get Amount" enabled="true">
-            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-            <stringProp name="RegexExtractor.refname">NewAmount</stringProp>
-            <stringProp name="RegexExtractor.regex">(?:Amount\: )([\d]*)</stringProp>
-            <stringProp name="RegexExtractor.template">$1$</stringProp>
-            <stringProp name="RegexExtractor.default"></stringProp>
-            <stringProp name="RegexExtractor.match_number">1</stringProp>
-            <stringProp name="Scope.variable">UserNumber</stringProp>
-            <stringProp name="Sample.scope">all</stringProp>
-          </RegexExtractor>
-          <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Update expected balance" enabled="false">
-            <boolProp name="resetInterpreter">false</boolProp>
-            <stringProp name="parameters"></stringProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="script">//send money: update expected balance
-import org.apache.jmeter.util.JMeterUtils;
-long originalSourceBalance = Long.parseLong(JMeterUtils.getProperty(&quot;DFSP1_Balance&quot;));
-long originalDestinationBalance = Long.parseLong(JMeterUtils.getProperty(&quot;Balance2&quot;));
-fee = vars.get(&quot;0&quot;);
-long lfee = Long.parseLong(fee);
-long amountSent = Long.parseLong(vars.get(&quot;Amount&quot;));
-
-long newSource = originalSourceBalance - amountSent - lfee;
-//long newSource = originalSourceBalance - amountSent;
-long newDest = originalDestinationBalance + amountSent;
-
-JMeterUtils.setProperty(&quot;Balance1&quot;, newSource.toString());
-JMeterUtils.setProperty(&quot;Balance2&quot;, newDest.toString());
-</stringProp>
-          </BeanShellPostProcessor>
-          <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Return Home - step 7" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Return Home - Sender - Step 5" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -490,13 +369,13 @@ JMeterUtils.setProperty(&quot;Balance2&quot;, newDest.toString());
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">${ussdPath}</stringProp>
+          <stringProp name="HTTPSampler.path">/ussd</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -506,7 +385,302 @@ JMeterUtils.setProperty(&quot;Balance2&quot;, newDest.toString());
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Enter your PIN" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Welcome" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1397214398">Welcome</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Connect to existing acount - Receiver - Step 6" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;phone&quot;: &quot;${receiverName}&quot;,&#xd;
+    &quot;message&quot;: &quot;*123#&quot;,&#xd;
+    &quot;newSession&quot;: &quot;true&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${approving_dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/ussd</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds Welcome" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1397214398">Welcome</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Pending Transactions - Receiver - Step 7" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;phone&quot;: &quot;${receiverName}&quot;,&#xd;
+    &quot;message&quot;: &quot;3&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${approving_dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/ussd</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Invoice from user 1 found" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="96710610">1. Invoice from ${DFSP_m_user1}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Incoming Transactions - Receiver - Step 8" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;phone&quot;: &quot;${receiverName}&quot;,&#xd;
+    &quot;message&quot;: &quot;1&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${approving_dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/ussd</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Invoice from user 1 found" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1734241792">1. Invoice from</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Approve Invoice - Receiver - Step 9" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;phone&quot;: &quot;${receiverName}&quot;,&#xd;
+    &quot;message&quot;: &quot;1&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${approving_dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/ussd</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Pending Transaction seen" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1168850084">Pending transaction from ${DFSP_m_user1} for ${Amount} USD</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Get Transfer Amount" enabled="false">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">Transferring</stringProp>
+            <stringProp name="RegexExtractor.regex">(?:\: )([\d]*)</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default"></stringProp>
+            <stringProp name="RegexExtractor.match_number">1</stringProp>
+            <stringProp name="Scope.variable">UserNumber</stringProp>
+            <stringProp name="Sample.scope">all</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Check Expected Transfer" enabled="false">
+            <stringProp name="BeanShellAssertion.query">String originalSourceBalance = vars.get(&quot;Balance1&quot;);
+String originalDestinationBalance = vars.get(&quot;Balance2&quot;);
+String transferring = vars.get(&quot;Transferring&quot;);
+String fee = vars.get(&quot;Fee&quot;);
+String amountSent = vars.get(&quot;Amount&quot;);
+
+long expectedTransfer = Long.parseLong(amountSent) + Long.parseLong(fee);
+Failure = !transferring.equals(expectedTransfer.toString());
+
+if (Failure) {
+  FailureMessage = &quot;Balances is not correct. Expected \&quot;&quot; + expectedTransfer.toString() + &quot;\&quot; , actual:\&quot;&quot; + transferring + &quot;\&quot;&quot;;
+}
+else {
+	long user1Balence = Long.parseLong(amountSent) + Long.parseLong(originalSourceBalance);
+	vars.put(&quot;Balance1&quot;,user1Balence.toString());
+	long user2Balence = Long.parseLong(originalDestinationBalance) - expectedTransfer;
+	vars.put(&quot;Balance2&quot;,user2Balence.toString());
+}</stringProp>
+            <stringProp name="BeanShellAssertion.filename"></stringProp>
+            <stringProp name="BeanShellAssertion.parameters"></stringProp>
+            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+          </BeanShellAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Enter PIN - Receiver - Step 10" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;phone&quot;: &quot;${receiverName}&quot;,&#xd;
+    &quot;message&quot;: &quot;${PIN}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${approving_dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/ussd</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds with Balance:" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1860185858">Balance:</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Update the expected Balances for User#1 and User#2" enabled="false">
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="script">//approve invoice: update expected balance
+import org.apache.jmeter.util.JMeterUtils;
+long originalSourceBalance = Long.parseLong(JMeterUtils.getProperty(&quot;Balance2&quot;));
+long originalDestinationBalance = Long.parseLong(JMeterUtils.getProperty(&quot;Balance1&quot;));
+fee = vars.get(&quot;Fee&quot;);
+long lfee = Long.parseLong(fee);
+long amountSent = Long.parseLong(vars.get(&quot;Amount&quot;));
+
+long newSource = originalSourceBalance - amountSent - lfee;
+long newDest = originalDestinationBalance + amountSent;
+
+JMeterUtils.setProperty(&quot;Balance1&quot;, newDest.toString());
+JMeterUtils.setProperty(&quot;Balance2&quot;, newSource.toString());</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Return Home - Receiver - Step 11" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;phone&quot;: &quot;${receiverName}&quot;,&#xd;
+    &quot;message&quot;: &quot;0&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${approving_dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/ussd</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Welcome" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="-1397214398">Welcome</stringProp>
             </collectionProp>
