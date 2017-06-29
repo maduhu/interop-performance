@@ -1,86 +1,60 @@
-2017/06/21 14:19:28 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_US 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: Loading user properties from: /usr/local/Cellar/jmeter/3.1/libexec/bin/user.properties 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: Loading system properties from: /usr/local/Cellar/jmeter/3.1/libexec/bin/system.properties 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: Setting JMeter property: UserThreads=4 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: Copyright (c) 1998-2016 The Apache Software Foundation 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: Version 3.1 r1770033 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: java.version=1.8.0_131 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: os.name=Mac OS X 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: os.arch=x86_64 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: os.version=10.12.5 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: file.encoding=UTF-8 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: Max memory     =514850816 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: Available Processors =8 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: Default Locale=English (United States) 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: JMeter  Locale=English (United States) 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: JMeterHome=/usr/local/Cellar/jmeter/3.1/libexec 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: user.dir  =/Users/priceb/Development/Workspaces/AnypointStudio/GatesOSS/interop-performance/JMeter/jmeter_scripts 
-2017/06/21 14:19:28 INFO  - jmeter.JMeter: PWD       =/Users/priceb/Development/Workspaces/AnypointStudio/GatesOSS/interop-performance/JMeter/jmeter_scripts 
-2017/06/21 14:19:29 INFO  - jmeter.JMeter: IP: 10.0.1.8 Name: Brians-MacBook-Pro.local FullName: 10.0.1.8 
-2017/06/21 14:19:29 INFO  - jmeter.services.FileServer: Default base='/Users/priceb/Development/Workspaces/AnypointStudio/GatesOSS/interop-performance/JMeter/jmeter_scripts' 
-2017/06/21 14:19:29 INFO  - jmeter.services.FileServer: Set new base='/Users/priceb/Development/Workspaces/AnypointStudio/GatesOSS/interop-performance/JMeter/jmeter_scripts' 
-2017/06/21 14:19:29 INFO  - jmeter.save.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2 
-2017/06/21 14:19:29 INFO  - jmeter.save.SaveService: Using SaveService properties file encoding UTF-8 
-2017/06/21 14:19:29 INFO  - jmeter.save.SaveService: Using SaveService properties version 3.1 
-2017/06/21 14:19:29 INFO  - jmeter.save.SaveService: All converter versions present and correct 
-2017/06/21 14:19:29 INFO  - jmeter.save.SaveService: Loading file: apikit-performance-comparison-noapikit.jmx 
-2017/06/21 14:19:29 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
-2017/06/21 14:19:29 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
-2017/06/21 14:19:29 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
-2017/06/21 14:19:29 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
-2017/06/21 14:19:29 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser 
-2017/06/21 14:19:29 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser 
-2017/06/21 14:19:29 INFO  - jmeter.JMeter: Creating summariser <summary> 
-2017/06/21 14:19:29 INFO  - jmeter.engine.StandardJMeterEngine: Running the test! 
-2017/06/21 14:19:29 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
-2017/06/21 14:19:29 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
-2017/06/21 14:19:29 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must contain the string: '.functions.' 
-2017/06/21 14:19:29 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must not contain the string: '.gui.' 
-2017/06/21 14:19:29 INFO  - jmeter.JMeter: Running test (1498076369408) 
-2017/06/21 14:19:29 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 1 : ILP Ledger Adapter Tests - CSV based - Thread Group 
-2017/06/21 14:19:29 INFO  - jmeter.engine.StandardJMeterEngine: Starting 4 threads for group ILP Ledger Adapter Tests - CSV based - Thread Group. 
-2017/06/21 14:19:29 INFO  - jmeter.engine.StandardJMeterEngine: Thread will start next loop on error 
-2017/06/21 14:19:29 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 1 threads 4 ramp-up 0 perThread 0.0 delayedStart=false 
-2017/06/21 14:19:29 INFO  - jmeter.threads.ThreadGroup: Started thread group number 1 
-2017/06/21 14:19:29 INFO  - jmeter.engine.StandardJMeterEngine: All thread groups have been started 
-2017/06/21 14:19:29 INFO  - jmeter.threads.JMeterThread: Thread started: ILP Ledger Adapter Tests - CSV based - Thread Group 1-3 
-2017/06/21 14:19:29 INFO  - jmeter.threads.JMeterThread: Thread started: ILP Ledger Adapter Tests - CSV based - Thread Group 1-1 
-2017/06/21 14:19:29 INFO  - jmeter.threads.JMeterThread: Thread started: ILP Ledger Adapter Tests - CSV based - Thread Group 1-4 
-2017/06/21 14:19:29 INFO  - jmeter.threads.JMeterThread: Thread started: ILP Ledger Adapter Tests - CSV based - Thread Group 1-2 
-2017/06/21 14:19:29 INFO  - jmeter.services.FileServer: Stored: data/customerPerformanceTestingData_180000-recs.csv Alias: data/customerPerformanceTestingData_180000-recs.csv@1268959798 
-2017/06/21 14:19:29 INFO  - jmeter.protocol.http.sampler.HTTPHCAbstractImpl: Local host = Brians-MacBook-Pro.local 
-2017/06/21 14:19:29 INFO  - jmeter.protocol.http.sampler.HTTPHC4Impl: HTTP request retry count = 0 
-2017/06/21 14:19:29 INFO  - jmeter.samplers.SampleResult: Note: Sample TimeStamps are START times 
-2017/06/21 14:19:29 INFO  - jmeter.samplers.SampleResult: sampleresult.default.encoding is set to ISO-8859-1 
-2017/06/21 14:19:29 INFO  - jmeter.samplers.SampleResult: sampleresult.useNanoTime=true 
-2017/06/21 14:19:29 INFO  - jmeter.samplers.SampleResult: sampleresult.nanoThreadSleep=5000 
-2017/06/21 14:19:30 INFO  - jmeter.reporters.Summariser: summary +    183 in 00:00:01 =  308.1/s Avg:     4 Min:     2 Max:    81 Err:     0 (0.00%) Active: 4 Started: 4 Finished: 0 
-2017/06/21 14:20:00 INFO  - jmeter.reporters.Summariser: summary +  44015 in 00:00:30 = 1467.2/s Avg:     2 Min:     1 Max:    39 Err:     0 (0.00%) Active: 4 Started: 4 Finished: 0 
-2017/06/21 14:20:00 INFO  - jmeter.reporters.Summariser: summary =  44198 in 00:00:31 = 1444.7/s Avg:     2 Min:     1 Max:    81 Err:     0 (0.00%) 
-2017/06/21 14:20:30 INFO  - jmeter.reporters.Summariser: summary +  43912 in 00:00:30 = 1463.8/s Avg:     2 Min:     1 Max:    34 Err:     0 (0.00%) Active: 4 Started: 4 Finished: 0 
-2017/06/21 14:20:30 INFO  - jmeter.reporters.Summariser: summary =  88110 in 00:01:01 = 1454.2/s Avg:     2 Min:     1 Max:    81 Err:     0 (0.00%) 
-2017/06/21 14:21:00 INFO  - jmeter.reporters.Summariser: summary +  44752 in 00:00:30 = 1491.7/s Avg:     2 Min:     1 Max:    31 Err:     0 (0.00%) Active: 4 Started: 4 Finished: 0 
-2017/06/21 14:21:00 INFO  - jmeter.reporters.Summariser: summary = 132862 in 00:01:31 = 1466.6/s Avg:     2 Min:     1 Max:    81 Err:     0 (0.00%) 
-2017/06/21 14:21:30 INFO  - jmeter.reporters.Summariser: summary +  44102 in 00:00:30 = 1470.0/s Avg:     2 Min:     1 Max:    37 Err:     0 (0.00%) Active: 4 Started: 4 Finished: 0 
-2017/06/21 14:21:30 INFO  - jmeter.reporters.Summariser: summary = 176964 in 00:02:01 = 1467.4/s Avg:     2 Min:     1 Max:    81 Err:     0 (0.00%) 
-2017/06/21 14:22:00 INFO  - jmeter.reporters.Summariser: summary +  39590 in 00:00:30 = 1319.7/s Avg:     2 Min:     1 Max:   195 Err:     0 (0.00%) Active: 4 Started: 4 Finished: 0 
-2017/06/21 14:22:00 INFO  - jmeter.reporters.Summariser: summary = 216554 in 00:02:31 = 1438.0/s Avg:     2 Min:     1 Max:   195 Err:     0 (0.00%) 
-2017/06/21 14:22:30 INFO  - jmeter.reporters.Summariser: summary +  44704 in 00:00:30 = 1490.2/s Avg:     2 Min:     1 Max:    19 Err:     0 (0.00%) Active: 4 Started: 4 Finished: 0 
-2017/06/21 14:22:30 INFO  - jmeter.reporters.Summariser: summary = 261258 in 00:03:01 = 1446.7/s Avg:     2 Min:     1 Max:   195 Err:     0 (0.00%) 
-2017/06/21 14:23:00 INFO  - jmeter.reporters.Summariser: summary +  43942 in 00:00:30 = 1464.7/s Avg:     2 Min:     1 Max:    20 Err:     0 (0.00%) Active: 4 Started: 4 Finished: 0 
-2017/06/21 14:23:00 INFO  - jmeter.reporters.Summariser: summary = 305200 in 00:03:31 = 1449.2/s Avg:     2 Min:     1 Max:   195 Err:     0 (0.00%) 
-2017/06/21 14:23:30 INFO  - jmeter.reporters.Summariser: summary +  42960 in 00:00:30 = 1432.0/s Avg:     2 Min:     1 Max:    48 Err:     0 (0.00%) Active: 4 Started: 4 Finished: 0 
-2017/06/21 14:23:30 INFO  - jmeter.reporters.Summariser: summary = 348160 in 00:04:01 = 1447.1/s Avg:     2 Min:     1 Max:   195 Err:     0 (0.00%) 
-2017/06/21 14:23:38 INFO  - jmeter.threads.JMeterThread: Stop Thread seen for thread ILP Ledger Adapter Tests - CSV based - Thread Group 1-3, reason:org.apache.jorphan.util.JMeterStopThreadException: End of file:data/customerPerformanceTestingData_180000-recs.csv detected for CSV DataSet:CSV Data Set Config configured with stopThread:true, recycle:false 
-2017/06/21 14:23:38 INFO  - jmeter.threads.JMeterThread: Stop Thread seen for thread ILP Ledger Adapter Tests - CSV based - Thread Group 1-2, reason:org.apache.jorphan.util.JMeterStopThreadException: End of file:data/customerPerformanceTestingData_180000-recs.csv detected for CSV DataSet:CSV Data Set Config configured with stopThread:true, recycle:false 
-2017/06/21 14:23:38 INFO  - jmeter.threads.JMeterThread: Thread finished: ILP Ledger Adapter Tests - CSV based - Thread Group 1-3 
-2017/06/21 14:23:38 INFO  - jmeter.threads.JMeterThread: Stop Thread seen for thread ILP Ledger Adapter Tests - CSV based - Thread Group 1-1, reason:org.apache.jorphan.util.JMeterStopThreadException: End of file:data/customerPerformanceTestingData_180000-recs.csv detected for CSV DataSet:CSV Data Set Config configured with stopThread:true, recycle:false 
-2017/06/21 14:23:38 INFO  - jmeter.threads.JMeterThread: Thread finished: ILP Ledger Adapter Tests - CSV based - Thread Group 1-1 
-2017/06/21 14:23:38 INFO  - jmeter.threads.JMeterThread: Stop Thread seen for thread ILP Ledger Adapter Tests - CSV based - Thread Group 1-4, reason:org.apache.jorphan.util.JMeterStopThreadException: End of file:data/customerPerformanceTestingData_180000-recs.csv detected for CSV DataSet:CSV Data Set Config configured with stopThread:true, recycle:false 
-2017/06/21 14:23:38 INFO  - jmeter.threads.JMeterThread: Thread finished: ILP Ledger Adapter Tests - CSV based - Thread Group 1-2 
-2017/06/21 14:23:38 INFO  - jmeter.threads.JMeterThread: Thread finished: ILP Ledger Adapter Tests - CSV based - Thread Group 1-4 
-2017/06/21 14:23:38 INFO  - jmeter.engine.StandardJMeterEngine: Notifying test listeners of end of test 
-2017/06/21 14:23:38 INFO  - jmeter.services.FileServer: Close: data/customerPerformanceTestingData_180000-recs.csv@1268959798 
-2017/06/21 14:23:38 INFO  - jmeter.reporters.Summariser: summary +  11840 in 00:00:09 = 1334.8/s Avg:     2 Min:     1 Max:    25 Err:     0 (0.00%) Active: 0 Started: 4 Finished: 4 
-2017/06/21 14:23:38 INFO  - jmeter.reporters.Summariser: summary = 360000 in 00:04:09 = 1443.1/s Avg:     2 Min:     1 Max:   195 Err:     0 (0.00%) 
+2017/06/26 17:29:50 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_US 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: Loading user properties from: /usr/local/Cellar/jmeter/3.1/libexec/bin/user.properties 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: Loading system properties from: /usr/local/Cellar/jmeter/3.1/libexec/bin/system.properties 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: Setting JMeter property: UserThreads=4 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: Copyright (c) 1998-2016 The Apache Software Foundation 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: Version 3.1 r1770033 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: java.version=1.8.0_131 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: os.name=Mac OS X 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: os.arch=x86_64 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: os.version=10.12.5 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: file.encoding=UTF-8 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: Max memory     =514850816 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: Available Processors =8 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: Default Locale=English (United States) 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: JMeter  Locale=English (United States) 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: JMeterHome=/usr/local/Cellar/jmeter/3.1/libexec 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: user.dir  =/Users/priceb/Development/Workspaces/AnypointStudio/GatesOSS/interop-performance/JMeter/jmeter_scripts 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: PWD       =/Users/priceb/Development/Workspaces/AnypointStudio/GatesOSS/interop-performance/JMeter/jmeter_scripts 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: IP: 10.0.1.8 Name: Brians-MacBook-Pro.local FullName: 10.0.1.8 
+2017/06/26 17:29:50 INFO  - jmeter.services.FileServer: Default base='/Users/priceb/Development/Workspaces/AnypointStudio/GatesOSS/interop-performance/JMeter/jmeter_scripts' 
+2017/06/26 17:29:50 INFO  - jmeter.services.FileServer: Set new base='/Users/priceb/Development/Workspaces/AnypointStudio/GatesOSS/interop-performance/JMeter/jmeter_scripts' 
+2017/06/26 17:29:50 INFO  - jmeter.save.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2 
+2017/06/26 17:29:50 INFO  - jmeter.save.SaveService: Using SaveService properties file encoding UTF-8 
+2017/06/26 17:29:50 INFO  - jmeter.save.SaveService: Using SaveService properties version 3.1 
+2017/06/26 17:29:50 INFO  - jmeter.save.SaveService: All converter versions present and correct 
+2017/06/26 17:29:50 INFO  - jmeter.save.SaveService: Loading file: interop-Ledger-GetAccount-Standalone.jmx 
+2017/06/26 17:29:50 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2017/06/26 17:29:50 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2017/06/26 17:29:50 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2017/06/26 17:29:50 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2017/06/26 17:29:50 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser 
+2017/06/26 17:29:50 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: Creating summariser <summary> 
+2017/06/26 17:29:50 INFO  - jmeter.engine.StandardJMeterEngine: Running the test! 
+2017/06/26 17:29:50 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2017/06/26 17:29:50 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2017/06/26 17:29:50 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must contain the string: '.functions.' 
+2017/06/26 17:29:50 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must not contain the string: '.gui.' 
+2017/06/26 17:29:50 INFO  - jmeter.JMeter: Running test (1498519790895) 
+2017/06/26 17:29:50 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 1 : ILP Ledger Adapter Tests - CSV based - Thread Group 
+2017/06/26 17:29:50 INFO  - jmeter.engine.StandardJMeterEngine: Starting 4 threads for group ILP Ledger Adapter Tests - CSV based - Thread Group. 
+2017/06/26 17:29:50 INFO  - jmeter.engine.StandardJMeterEngine: Thread will start next loop on error 
+2017/06/26 17:29:50 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 1 threads 4 ramp-up 4 perThread 1000.0 delayedStart=false 
+2017/06/26 17:29:50 INFO  - jmeter.threads.JMeterThread: Thread started: ILP Ledger Adapter Tests - CSV based - Thread Group 1-1 
+2017/06/26 17:29:50 INFO  - jmeter.services.FileServer: Stored: data/customerPerformanceTestingData-10000-recs.csv 
+2017/06/26 17:29:50 INFO  - jmeter.threads.ThreadGroup: Started thread group number 1 
+2017/06/26 17:29:50 INFO  - jmeter.engine.StandardJMeterEngine: All thread groups have been started 
+2017/06/26 17:29:50 INFO  - jmeter.protocol.http.sampler.HTTPHCAbstractImpl: Local host = Brians-MacBook-Pro.local 
+2017/06/26 17:29:50 INFO  - jmeter.protocol.http.sampler.HTTPHC4Impl: HTTP request retry count = 0 
+2017/06/26 17:29:51 INFO  - jmeter.samplers.SampleResult: Note: Sample TimeStamps are START times 
+2017/06/26 17:29:51 INFO  - jmeter.samplers.SampleResult: sampleresult.default.encoding is set to ISO-8859-1 
+2017/06/26 17:29:51 INFO  - jmeter.samplers.SampleResult: sampleresult.useNanoTime=true 
+2017/06/26 17:29:51 INFO  - jmeter.samplers.SampleResult: sampleresult.nanoThreadSleep=5000 
+2017/06/26 17:29:51 INFO  - jmeter.threads.JMeterThread: Thread started: ILP Ledger Adapter Tests - CSV based - Thread Group 1-2 
+2017/06/26 17:29:52 INFO  - jmeter.threads.JMeterThread: Thread started: ILP Ledger Adapter Tests - CSV based - Thread Group 1-3 
+2017/06/26 17:29:53 INFO  - jmeter.threads.JMeterThread: Thread started: ILP Ledger Adapter Tests - CSV based - Thread Group 1-4 
+2017/06/26 17:30:00 INFO  - jmeter.reporters.Summariser: summary +   1102 in 00:00:09 =  119.1/s Avg:    26 Min:     2 Max:   204 Err:  1102 (100.00%) Active: 4 Started: 4 Finished: 0 
+2017/06/26 17:30:04 INFO  - jmeter.reporters.ResultCollector: Shutdown hook started 
+2017/06/26 17:30:04 INFO  - jmeter.reporters.ResultCollector: Shutdown hook ended 

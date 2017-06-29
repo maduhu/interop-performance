@@ -135,6 +135,13 @@
             <version>${mule.version}</version>
             <scope>provided</scope>
         </dependency>
+    <dependency>
+            <groupId>com.l1p.interop</groupId>
+            <artifactId>interop-domain</artifactId>
+            <version>0.1.26-SNAPSHOT</version>
+            <scope>test</scope>
+            <type>zip</type>
+        </dependency>
     </dependencies>
 
 	<repositories>

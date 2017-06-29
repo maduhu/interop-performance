@@ -9,12 +9,12 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="dfsp1" elementType="Argument">
             <stringProp name="Argument.name">dfsp1</stringProp>
-            <stringProp name="Argument.value">ec2-52-32-130-4.us-west-2.compute.amazonaws.com</stringProp>
+            <stringProp name="Argument.value">ec2-35-166-180-190.us-west-2.compute.amazonaws.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="dfsp2" elementType="Argument">
             <stringProp name="Argument.name">dfsp2</stringProp>
-            <stringProp name="Argument.value">ec2-35-166-236-69.us-west-2.compute.amazonaws.com</stringProp>
+            <stringProp name="Argument.value">ec2-54-69-54-244.us-west-2.compute.amazonaws.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="ussdPort" elementType="Argument">
@@ -74,7 +74,7 @@
           </elementProp>
           <elementProp name="sendMoneyCsvPath" elementType="Argument">
             <stringProp name="Argument.name">sendMoneyCsvPath</stringProp>
-            <stringProp name="Argument.value">data/customertestTestingData.csv</stringProp>
+            <stringProp name="Argument.value">data/customerperfTestingData.csv</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="csvPathQa" elementType="Argument">
