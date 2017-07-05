@@ -44,7 +44,7 @@
           </elementProp>
           <elementProp name="hostname_performance_standalone" elementType="Argument">
             <stringProp name="Argument.name">hostname_performance_standalone</stringProp>
-            <stringProp name="Argument.value">ec2-34-209-21-199.us-west-2.compute.amazonaws.com</stringProp>
+            <stringProp name="Argument.value">localhost</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="hold-hostname" elementType="Argument">
