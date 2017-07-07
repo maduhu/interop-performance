@@ -98,7 +98,7 @@ to ensure that cashing is not used.
 
 The interop-Ledger-PrepareTransfer-Standalone.jmx script is configured
 to call the PUT resource on the following URL:
-**/ilp/ledger/v1/transfers${senderfUUID}**.
+**/ilp/ledger/v1/transfers/${senderfUUID}**.
 
 In order to run theses JMeter scripts, JMeter needed to be installed on
 the interop standalone server. JMeter was installed in
