@@ -1,0 +1,6 @@
+"senderDFSP","senderName","senderAccountName","senderID","senderRoleType","senderUUID","receiverDFSP","receiverName","receiverAccountName","receiverID","receiverRoleType","receiverUUID"
+"dfsp1","cust170630-3-1-1","PT-cust170630-3-1-1","48289144","customer","11884c89-b23f-48cf-9915-feca2849c7fc","dfsp2","cust170630-3-1-2","PT-cust170630-3-1-2","04914371","customer","d6aaae4a-5ddf-4071-989d-e353e6041906"
+"dfsp1","cust170630-3-2-1","PT-cust170630-3-2-1","79568309","customer","73191761-ee4c-4198-9dda-316adb4b60e2","dfsp2","cust170630-3-2-2","PT-cust170630-3-2-2","56157048","customer","c2ca32e3-5e92-482c-8d02-c9bc5deeab0b"
+"dfsp1","cust170630-3-3-1","PT-cust170630-3-3-1","33493072","customer","303dac18-56e9-48b3-93ba-698880f2405c","dfsp2","cust170630-3-3-2","PT-cust170630-3-3-2","36546557","customer","4df0d096-c176-4eac-b94f-e4635c6f5351"
+"dfsp1","cust170630-3-4-1","PT-cust170630-3-4-1","13618775","customer","d64f5f2b-0893-450f-9d48-a41b4650efc6","dfsp2","cust170630-3-4-2","PT-cust170630-3-4-2","76379447","customer","929caf8a-157b-4a12-b807-de3ecdc78ea8"
+"dfsp1","cust170630-3-5-1","PT-cust170630-3-5-1","58539178","customer","363e82c4-a8b1-4eec-822c-60a85a85415a","dfsp2","cust170630-3-5-2","PT-cust170630-3-5-2","89009039","customer","47b246b1-900b-475a-a767-7bbee7e20937"
