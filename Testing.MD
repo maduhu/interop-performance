@@ -326,3 +326,7 @@ Interop services reaching &gt; 300 TPS.
 
 ModusBox will be submitting a ticket to MuleSoft for assistance in
 understanding the API Kit situation as this is important to resolve.
+
+**Update from MuleSoft July 2017**
+MuleSoft has identified this situation as a bug and will be resolved in 3.8.6.
+The "bug" or feature does not affect RAML based APIs with 0.8 RAML, but is an issue with 1.0 RAML.  
