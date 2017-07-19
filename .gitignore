@@ -2,6 +2,7 @@
 # Java defaults (https://github.com/github/gitignore/blob/master/Java.gitignore) #
 # ------------------------------------------------------------------------------ #
 *.class
+target/classes/
 
 # Package Files #
 *.jar
@@ -49,6 +50,7 @@ backups/
 ramls/
 flows/
 target/
+Mule/interop-performance-test-data-api/target/
 **/*md__io__.xml
 **/*.mflow
 studio_id.xml

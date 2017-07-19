@@ -7,11 +7,6 @@
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="dfsp1" elementType="Argument">
-            <stringProp name="Argument.name">dfsp1</stringProp>
-            <stringProp name="Argument.value">localhost</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
           <elementProp name="Amount" elementType="Argument">
             <stringProp name="Argument.name">Amount</stringProp>
             <stringProp name="Argument.value">10</stringProp>
@@ -42,14 +37,9 @@
             <stringProp name="Argument.value">8088</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="hostname_performance_standalone" elementType="Argument">
-            <stringProp name="Argument.name">hostname_performance_standalone</stringProp>
-            <stringProp name="Argument.value">ec2-34-209-21-199.us-west-2.compute.amazonaws.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="hold-hostname" elementType="Argument">
-            <stringProp name="Argument.name">hold-hostname</stringProp>
-            <stringProp name="Argument.value">ec2-34-209-21-199.us-west-2.compute.amazonaws.com</stringProp>
+          <elementProp name="hostname" elementType="Argument">
+            <stringProp name="Argument.name">hostname</stringProp>
+            <stringProp name="Argument.value">localhost</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="hold-datafile" elementType="Argument">
@@ -115,7 +105,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${hostname_performance_standalone}</stringProp>
+          <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${host_port}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>

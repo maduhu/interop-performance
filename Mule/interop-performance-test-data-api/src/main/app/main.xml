@@ -6,14 +6,14 @@
 	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:spring="http://www.springframework.org/schema/beans" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
 
 
-	<http:request-config name="HTTP_Request_Configuration_USSD" host="#[sessionVars.dfsp_host]" port="${ussd.port}" doc:name="HTTP Request Configuration" usePersistentConnections="false"/>
+	<http:request-config name="HTTP_Request_Configuration_USSD" host="#[sessionVars.dfsp_host]" port="${ussd.port}" doc:name="HTTP Request Configuration" />
     <context:property-placeholder location="mule-${MULE_ENV}.properties"/>
     <http:listener-config name="HTTP_Listener_Configuration-test" host="0.0.0.0" port="8082" doc:name="HTTP Listener Configuration"/>
     
@@ -26,14 +26,19 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
         <flow-ref name="create-users-accounts-in-dfsp-Sub_Flow" doc:name="create-users-accounts-in-dfsp-Sub_Flow"/>
         <flow-ref name="write-data-to-file-Sub_Flow" doc:name="write-data-to-file-Sub_Flow"/>
         <logger message="end of create data main logic flow" level="INFO" doc:name="Logger"/>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+            <logger message="****** Caught Exception in Main Exception Handler ***** Got an error while processing user account.  Exception = #[message.payload]" level="ERROR" doc:name="Logger"/>
+            <set-payload value="{ &quot;message&quot; : &quot;Unable to process create user account.  An error occurred while processing the following account&quot;,
+  &quot;exception&quot; : &quot;#[payload]&quot; }" mimeType="application/json" doc:name="Set Payload"/>
+        </catch-exception-strategy>
     </flow>
     
     <sub-flow name="extract-payload-variables-Sub_Flow">
-        <logger message="extract payload data" level="INFO" doc:name="Logger"/>
         <set-session-variable variableName="numberOfUsersToCreate" value="#[json:numberOfUsersToCreate]" doc:name="Session Variable - numberOfUsersToCreate"/>
         <set-session-variable variableName="phoneNameRoot" value="#[json:phoneNameRoot]" doc:name="Session Variable - phoneNameRoot"/>
         <set-session-variable variableName="testRunSequence" value="#[json:testRunSequence]" doc:name="Session Variable - testRunSequence"/>
         <set-session-variable variableName="userRoleType" value="#[json:userRoleType]" doc:name="Session Variable - userRoleType"/>
+        <logger message="extract payload data" level="INFO" doc:name="Logger"/>
         <set-session-variable variableName="muleEnv" value="${MULE_ENV}" doc:name="Session Variable - mule_env"/>
         <logger message="num users :: #[json:numberOfUsersToCreate]" level="INFO" doc:name="Logger"/>
     </sub-flow>
