@@ -29,7 +29,7 @@
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="ledgerTestDataSet" enabled="true">
           <stringProp name="delimiter">,</stringProp>
           <stringProp name="fileEncoding"></stringProp>
-          <stringProp name="filename">data/sa-perf/customerperf-eastTestingData-7-19-50users.csv</stringProp>
+          <stringProp name="filename">data/sa-perf/customerperf-eastTestingData-7-19-250users.csv</stringProp>
           <boolProp name="quotedData">true</boolProp>
           <boolProp name="recycle">false</boolProp>
           <stringProp name="shareMode">shareMode.all</stringProp>
@@ -230,8 +230,8 @@
    &quot;payee&quot;: {&#xd;
      &quot;identifier&quot;: &quot;${receiverID}&quot;,&#xd;
      &quot;identifierType&quot;: &quot;eur&quot;,&#xd;
-     &quot;url&quot;: &quot;${dfsp2}:8088/scheme/adapter/v1&quot;,&#xd;
-     &quot;account&quot;: &quot;http://${dfsp2}:8088/ilp/ledger/v1/accounts/${receiverAccountName}&quot;&#xd;
+     &quot;url&quot;: &quot;${dfsp1}:8088/scheme/adapter/v1&quot;,&#xd;
+     &quot;account&quot;: &quot;http://${dfsp1}:8088/ilp/ledger/v1/accounts/${receiverAccountName}&quot;&#xd;
    },&#xd;
    &quot;amountType&quot;: &quot;RECEIVE&quot;,&#xd;
    &quot;amount&quot;: {&#xd;
@@ -389,11 +389,11 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-	&quot;sourceAccount&quot;: &quot;http://${dfsp1}:8014/ledger/accounts/${senderAccountName}&quot;,&#xd;
+	&quot;sourceAccount&quot;: &quot;http://${dfsp2}:8014/ledger/accounts/${senderAccountName}&quot;,&#xd;
 	&quot;sourceAmount&quot;: &quot;${receiveAmount}&quot;,&#xd;
 	&quot;ipr&quot;: &quot;${ipr}&quot;,&#xd;
 	&quot;sourceExpiryDuration&quot;: ${sourceExpiryDuration},&#xd;
-	&quot;connectorAccount&quot;: &quot;http://${dfsp1}:8014/ledger/accounts/dfsp1-testconnector&quot;&#xd;
+	&quot;connectorAccount&quot;: &quot;http://${dfsp2}:8014/ledger/accounts/dfsp1-testconnector&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
