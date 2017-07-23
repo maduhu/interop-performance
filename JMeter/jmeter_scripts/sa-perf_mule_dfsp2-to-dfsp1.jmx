@@ -29,7 +29,7 @@
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="ledgerTestDataSet" enabled="true">
           <stringProp name="delimiter">,</stringProp>
           <stringProp name="fileEncoding"></stringProp>
-          <stringProp name="filename">data/sa-perf/customerperf-eastTestingData-7-19-50users.csv</stringProp>
+          <stringProp name="filename">data/sa-perf/customerPerf-EastTestingData-dfsp2-only.csv</stringProp>
           <boolProp name="quotedData">true</boolProp>
           <boolProp name="recycle">false</boolProp>
           <stringProp name="shareMode">shareMode.all</stringProp>
@@ -230,8 +230,8 @@
    &quot;payee&quot;: {&#xd;
      &quot;identifier&quot;: &quot;${receiverID}&quot;,&#xd;
      &quot;identifierType&quot;: &quot;eur&quot;,&#xd;
-     &quot;url&quot;: &quot;${dfsp2}:8088/scheme/adapter/v1&quot;,&#xd;
-     &quot;account&quot;: &quot;http://${dfsp2}:8088/ilp/ledger/v1/accounts/${receiverAccountName}&quot;&#xd;
+     &quot;url&quot;: &quot;${dfsp1}:8088/scheme/adapter/v1&quot;,&#xd;
+     &quot;account&quot;: &quot;http://${dfsp1}:8088/ilp/ledger/v1/accounts/${receiverAccountName}&quot;&#xd;
    },&#xd;
    &quot;amountType&quot;: &quot;RECEIVE&quot;,&#xd;
    &quot;amount&quot;: {&#xd;
@@ -244,7 +244,7 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp1}</stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp2}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -267,6 +267,10 @@
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
                 <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">L1p-Trace-Id</stringProp>
+                <stringProp name="Header.value">${uniqueId}</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
@@ -299,6 +303,14 @@
           <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="save sourceExpiryDuration" enabled="true">
             <stringProp name="VAR">sourceExpiryDuration</stringProp>
             <stringProp name="JSONPATH">$.sourceExpiryDuration</stringProp>
+            <stringProp name="DEFAULT"></stringProp>
+            <stringProp name="VARIABLE"></stringProp>
+            <stringProp name="SUBJECT">BODY</stringProp>
+          </com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="save paymentId" enabled="true">
+            <stringProp name="VAR">paymentId</stringProp>
+            <stringProp name="JSONPATH">$.paymentId</stringProp>
             <stringProp name="DEFAULT"></stringProp>
             <stringProp name="VARIABLE"></stringProp>
             <stringProp name="SUBJECT">BODY</stringProp>
@@ -389,17 +401,17 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-	&quot;sourceAccount&quot;: &quot;http://${dfsp1}:8014/ledger/accounts/${senderAccountName}&quot;,&#xd;
+	&quot;sourceAccount&quot;: &quot;http://${dfsp2}:8014/ledger/accounts/${senderAccountName}&quot;,&#xd;
 	&quot;sourceAmount&quot;: &quot;${receiveAmount}&quot;,&#xd;
 	&quot;ipr&quot;: &quot;${ipr}&quot;,&#xd;
 	&quot;sourceExpiryDuration&quot;: ${sourceExpiryDuration},&#xd;
-	&quot;connectorAccount&quot;: &quot;http://${dfsp1}:8014/ledger/accounts/dfsp1-testconnector&quot;&#xd;
+	&quot;connectorAccount&quot;: &quot;http://${dfsp2}:8014/ledger/accounts/dfsp2-testconnector&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp1}</stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp2}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -422,6 +434,10 @@
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
                 <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">L1p-Trace-Id</stringProp>
+                <stringProp name="Header.value">${paymentId}</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
