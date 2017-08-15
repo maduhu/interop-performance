@@ -7,6 +7,11 @@
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
+          <elementProp name="dfsp1" elementType="Argument">
+            <stringProp name="Argument.name">dfsp1</stringProp>
+            <stringProp name="Argument.value">ec2-34-209-21-199.us-west-2.compute.amazonaws.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
           <elementProp name="Amount" elementType="Argument">
             <stringProp name="Argument.name">Amount</stringProp>
             <stringProp name="Argument.value">10</stringProp>
@@ -19,7 +24,7 @@
           </elementProp>
           <elementProp name="dataFile" elementType="Argument">
             <stringProp name="Argument.name">dataFile</stringProp>
-            <stringProp name="Argument.value">data/customerPerformanceTestingData-10000-recs.csv</stringProp>
+            <stringProp name="Argument.value">data/customerPerformanceTestingData-30000-recs.csv</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="csvPathQa" elementType="Argument">
@@ -39,17 +44,12 @@
           </elementProp>
           <elementProp name="hostname" elementType="Argument">
             <stringProp name="Argument.name">hostname</stringProp>
-            <stringProp name="Argument.value">ec2-35-162-104-14.us-west-2.compute.amazonaws.com</stringProp>
+            <stringProp name="Argument.value">ec2-34-209-21-199.us-west-2.compute.amazonaws.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="hold-datafile" elementType="Argument">
             <stringProp name="Argument.name">hold-datafile</stringProp>
             <stringProp name="Argument.value">data/customerPerformanceTestingData.csv</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="basic_authorization" elementType="Argument">
-            <stringProp name="Argument.name">basic_authorization</stringProp>
-            <stringProp name="Argument.value">Basic YWRtaW46YWRtaW4=</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -70,13 +70,48 @@
         </collectionProp>
       </HeaderManager>
       <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="DFSP2_U1_Balance_1" elementType="Argument">
+            <stringProp name="Argument.name">DFSP2_U1_Balance_1</stringProp>
+            <stringProp name="Argument.value">0</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DFSP2_U1_Balance_2" elementType="Argument">
+            <stringProp name="Argument.name">DFSP2_U1_Balance_2</stringProp>
+            <stringProp name="Argument.value">0</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DFSP2_U2_Balance_1" elementType="Argument">
+            <stringProp name="Argument.name">DFSP2_U2_Balance_1</stringProp>
+            <stringProp name="Argument.value">0</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DFSP2_U2_Balance_2" elementType="Argument">
+            <stringProp name="Argument.name">DFSP2_U2_Balance_2</stringProp>
+            <stringProp name="Argument.value">0</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="dfsp_host_var" elementType="Argument">
+            <stringProp name="Argument.name">dfsp_host_var</stringProp>
+            <stringProp name="Argument.value">${dfsp1}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="approving_dfsp_host_var" elementType="Argument">
+            <stringProp name="Argument.name">approving_dfsp_host_var</stringProp>
+            <stringProp name="Argument.value">${dfsp2}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ILP Ledger Adapter Tests - CSV based - Thread Group" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">startnextloop</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${__P(UserThreads,2)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(UserThreads,10)}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">4</stringProp>
         <longProp name="ThreadGroup.start_time">1486058892000</longProp>
         <longProp name="ThreadGroup.end_time">1486058892000</longProp>
@@ -121,32 +156,45 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
         </ConfigTestElement>
         <hashTree/>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller - Get Account - Step 1" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller - Prepare Transfer - Step 2" enabled="true"/>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic ${base64HeaderValue}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Accept</stringProp>
                 <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">${basic_authorization}</stringProp>
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ILP Ledger Adapter - Get Account - Step 1 (start)" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ILP Ledger Adapter - Prepare Transfer - Step 2" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;id&quot;: &quot;http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8014/ledger/transfers/${senderUUID}&quot;,&#xd;
+	&quot;ledger&quot;: &quot;http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8014/ledger&quot;,&#xd;
+	&quot;debits&quot;: [{&#xd;
+		&quot;account&quot;: &quot;http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/ledger/accounts/bob&quot;,&#xd;
+		&quot;amount&quot;: &quot;100&quot;&#xd;
+	}],&#xd;
+	&quot;credits&quot;: [{&#xd;
+		&quot;account&quot;: &quot;http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/ledger/accounts/alice&quot;,&#xd;
+		&quot;amount&quot;: &quot;100&quot;&#xd;
+	}],&#xd;
+	&quot;execution_condition&quot;: &quot;cc:0:3:8ZdpKBDUV-KX_OnFZTsCWB_5mlCFI3DynX5f5H2dN-Y:2&quot;,&#xd;
+	&quot;expires_at&quot;: &quot;2016-10-27T00:00:01.000Z&quot;&#xd;
+}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -157,8 +205,8 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-            <stringProp name="HTTPSampler.path">/ilp/ledger/v1/accounts/${senderAccountId}</stringProp>
-            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <stringProp name="HTTPSampler.path">/ilp/ledger/v1/transfers/${senderUUID}</stringProp>
+            <stringProp name="HTTPSampler.method">PUT</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -167,9 +215,9 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds Welcome" enabled="false">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check  Destination Number" enabled="false">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="-1397214398">Welcome</stringProp>
+                <stringProp name="1038117379">Enter destination number</stringProp>
               </collectionProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>

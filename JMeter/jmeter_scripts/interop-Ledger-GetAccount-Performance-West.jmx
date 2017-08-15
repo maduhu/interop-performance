@@ -19,7 +19,7 @@
           </elementProp>
           <elementProp name="dataFile" elementType="Argument">
             <stringProp name="Argument.name">dataFile</stringProp>
-            <stringProp name="Argument.value">data/customerPerformanceTestingData-10000-recs.csv</stringProp>
+            <stringProp name="Argument.value">data/customerPerformanceTestingData-30000-recs.csv</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="csvPathQa" elementType="Argument">
@@ -39,7 +39,7 @@
           </elementProp>
           <elementProp name="hostname" elementType="Argument">
             <stringProp name="Argument.name">hostname</stringProp>
-            <stringProp name="Argument.value">ec2-35-162-104-14.us-west-2.compute.amazonaws.com</stringProp>
+            <stringProp name="Argument.value">ec2-34-209-21-199.us-west-2.compute.amazonaws.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="hold-datafile" elementType="Argument">
@@ -157,7 +157,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-            <stringProp name="HTTPSampler.path">/ilp/ledger/v1/accounts/${senderAccountId}</stringProp>
+            <stringProp name="HTTPSampler.path">/ilp/ledger/v1/accounts/${senderID}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>

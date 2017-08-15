@@ -19,7 +19,7 @@
           </elementProp>
           <elementProp name="dataFile" elementType="Argument">
             <stringProp name="Argument.name">dataFile</stringProp>
-            <stringProp name="Argument.value">data/customerPerformanceTestingData-10000-recs.csv</stringProp>
+            <stringProp name="Argument.value">data/customerPerformanceTestingData-30000-recs.csv</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="csvPathQa" elementType="Argument">
@@ -40,6 +40,11 @@
           <elementProp name="hostname" elementType="Argument">
             <stringProp name="Argument.name">hostname</stringProp>
             <stringProp name="Argument.value">ec2-34-209-21-199.us-west-2.compute.amazonaws.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="basic_authorization" elementType="Argument">
+            <stringProp name="Argument.name">basic_authorization</stringProp>
+            <stringProp name="Argument.value">Basic YWRtaW46YWRtaW4=</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -135,7 +140,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${hostname_performance_standalone}</stringProp>
+          <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${host_port}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -182,7 +187,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-            <stringProp name="HTTPSampler.path">/apikit/ilp/ledger/v1/transfers/${senderUUID}/fulfillment</stringProp>
+            <stringProp name="HTTPSampler.path">/ilp/ledger/v1/transfers/${senderUUID}/fulfillment</stringProp>
             <stringProp name="HTTPSampler.method">PUT</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>

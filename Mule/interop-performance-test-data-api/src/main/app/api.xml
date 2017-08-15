@@ -6,10 +6,13 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
     
     <http:listener-config name="api-httpListenerConfig" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
     
-    <apikit:config name="api-config" raml="api.raml" consoleEnabled="false" doc:name="Router"/>
+    <apikit:config name="api-config" raml="api.raml" consoleEnabled="false" doc:name="Router" >
+        <apikit:flow-mapping resource="/Users" action="post" content-type="application/json" flow-ref="post:/Users:application/json:api-config"/>
+    </apikit:config>
     
     <flow name="api-main">
         <http:listener config-ref="api-httpListenerConfig" path="/api/*" doc:name="HTTP"/>
+        <logger message="API Reached." level="INFO" doc:name="Logger"/>
         <apikit:router config-ref="api-config" doc:name="APIkit Router"/>
         <exception-strategy ref="api-apiKitGlobalExceptionMapping" doc:name="Reference Exception Strategy"/>
     </flow>
@@ -20,6 +23,7 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
     </flow>
     
     <flow name="post:/Users:application/json:api-config">
+        <logger message="sub flow reached for post/Users" level="INFO" doc:name="Logger"/>
         <flow-ref name="main-logic-Flow" doc:name="main-logic-Flow"/>
     </flow>
     
