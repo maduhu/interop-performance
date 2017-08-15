@@ -56,26 +56,7 @@ public class CreateTestData implements Callable {
 		
 		return "done";
 	}
-	
-	
-//	private List<UserBean> createData(String dfsp) {
-//		List<UserBean> users = new ArrayList<UserBean>();
-//		UserBean user = null;
-//		String phoneNameAndAccount = null;
-//		
-//		for (int i=1; i<=numberOfUsersToCreate; i++)  {
-//			user = new UserBean();
-//			phoneNameAndAccount = phoneNameRoot + "-" + testRunSequence + "-" + i + "-" + dfsp;
-//			System.out.println("phoneNameAndAccount = " + phoneNameAndAccount);
-//			user.setPhoneName(phoneNameAndAccount);
-//			user.setAccountName("PT-" + phoneNameAndAccount);
-//			user.setUserRoleType(userRoleType);
-//			users.add(user);
-//		}
-//		
-//		return users;
-//	}
-	
+
 	
 	private List<UserBean> createData(int dfsp) {
 		List<UserBean> users = new ArrayList<UserBean>();
